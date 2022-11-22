@@ -61,7 +61,6 @@
 									<p>
 										#displays initialisation<br>
 										print("\nOpening your bank account book...")<br>
-										
 									</p>
 									<p>
 										#retrieving the username<br>
@@ -72,88 +71,88 @@
 										username_surname = username_surname.capitalize()<br>
 										#creating the username<br>
 										username = username_first + " " + username_surname<br>
+									</p>
+									<p>
+										#defining the main menu where all options are available from<br>
+										def bab_menu():<br>
+										#main menu display (application interface)<br>
+    											print('''\nThis is the bank account book of ''' + username + '''. See your options below:<br>
+    													
+    											To view your transactions ~ Enter 1<br>
+    											To search for a specific transaction ~ Enter 2<br>
+   											To add a transaction ~ Enter 3<br>
+    											To delete a transaction ~ Enter 4<br>
+    											To sort your transactions ~ Enter 5<br>
 
-										
-										#defining the main menu where all options are available from
-										def bab_menu():
-										#main menu display (application interface)
-    											print('''\nThis is the bank account book of ''' + username + '''. See your options below:
-    
-    											To view your transactions ~ Enter 1
-    											To search for a specific transaction ~ Enter 2
-   											To add a transaction ~ Enter 3
-    											To delete a transaction ~ Enter 4
-    											To sort your transactions ~ Enter 5
-
-        											To Quit ~ Enter 6
-    											''')
-										#directory for functional options
-    											bab_selection = input("Enter your option (1-6): ")
-    											if bab_selection == '1':
-        											bab_view()
-    											elif bab_selection == '2':
-        											bab_search()
-    											elif bab_selection == '3':
-        											bab_add()
-    											elif bab_selection == '4':
-        											bab_delete()
-    											elif bab_selection == '5':
-        											bab_sort()
-    											else:
-        											print("\n\nYou Quit. Bye.\n")
+        											To Quit ~ Enter 6<br>
+    											''')<br>
+										#directory for functional options<br>
+    											bab_selection = input("Enter your option (1-6): ")<br>
+    											if bab_selection == '1':<br>
+        											bab_view()<br>
+    											elif bab_selection == '2':<br>
+        											bab_search()<br>
+    											elif bab_selection == '3':<br>
+        											bab_add()<br>
+    											elif bab_selection == '4':<br>
+        											bab_delete()<br>
+    											elif bab_selection == '5':<br>
+        											bab_sort()<br>
+    											else:<br>
+        											print("\n\nYou Quit. Bye.\n")<br>
 
 
-											#defining the 'view' functionality
-											def bab_view():
-											#create/open a text file for storing data, display data, close file, return to menu
-    												with open('bab.txt', 'r') as bab_file:
-        												print('''
-											---------------------------------------------------------------
+											#defining the 'view' functionality<br>
+											def bab_view():<br>
+											#create/open a text file for storing data, display data, close file, return to menu<br>
+    												with open('bab.txt', 'r') as bab_file:<br>
+        												print('''<br>
+											---------------------------------------------------------------<br>
 
-        												See All Your Inputted Transactions Below >>>
+        												See All Your Inputted Transactions Below >>><br>
         
-        												''')
-        												print(bab_file.read())
-        												print("---------------------------------------------------------------")
-    												bab_file.close()
-    												bab_menu()
+        												''')<br>
+        												print(bab_file.read())<br>
+        												print("---------------------------------------------------------------")<br>
+    												bab_file.close()<br>
+    												bab_menu()<br>
 
 
-												#defining the 'search' functionality
-												def bab_search():
-												#create/open a text file for storing data, set variable as the data
-    													with open("bab.txt", 'r') as bab_file:
-        													reader = bab_file.readlines()
-    													print("\n---------------------------------------------------------------\n")
-												#retrieving a search keyword from user
-    													keyword_search = input("Enter the name associated with the transaction you wish to search for (or enter '1' to return to menu): ")
-												#searching for keyword in each row of data, display row, display explanation
-    													if keyword_search == '1':
-        													print("\nreturning to menu...")
-        													print("\n---------------------------------------------------------------")
-        													bab_menu()
-    													else:
-        													print("\nThe transaction/s you searched for -->")
-        													for line in reader:
-            														if keyword_search.capitalize() in line or keyword_search.lower() in line:
-                														print(line)
-            														else:
-                														pass
-    													print("\n---------------------------------------------------------------")
-    													bab_file.close()
-    													bab_menu()
+												#defining the 'search' functionality<br>
+												def bab_search():<br>
+												#create/open a text file for storing data, set variable as the data<br>
+    													with open("bab.txt", 'r') as bab_file:<br>
+        													reader = bab_file.readlines()<br>
+    													print("\n---------------------------------------------------------------\n")<br>
+												#retrieving a search keyword from user<br>
+    													keyword_search = input("Enter the name associated with the transaction you wish to search for (or enter '1' to return to menu): ")<br>
+												#searching for keyword in each row of data, display row, display explanation<br>
+    													if keyword_search == '1':<br>
+        													print("\nreturning to menu...")<br>
+        													print("\n---------------------------------------------------------------")<br>
+        													bab_menu()<br>
+    													else:<br>
+        													print("\nThe transaction/s you searched for -->")<br>
+        													for line in reader:<br>
+            														if keyword_search.capitalize() in line or keyword_search.lower() in line:<br>
+                														print(line)<br>
+            														else:<br>
+                														pass<br>
+    													print("\n---------------------------------------------------------------")<br>
+    													bab_file.close()<br>
+    													bab_menu()<br>
 
 
-													#defining the 'add' functionality
-													def bab_add():
-    														print("\n---------------------------------------------------------------")
-													#retrieving the data for the transaction to be added
-    														date = input("\nEnter date of transaction (yyyy/mm/dd): ")
-    														transaction_type = input("Enter transaction type ('credit' or 'debit'): ")
-    														transaction_type = transaction_type.lower()
-													#assigning the 'sender' or 'recipient' variable as the username depending on the transaction type
-    														if transaction_type == "credit":
-        														recipient = "you"
+													#defining the 'add' functionality<br>
+													def bab_add():<br>
+    														print("\n---------------------------------------------------------------")<br>
+													#retrieving the data for the transaction to be added<br>
+    														date = input("\nEnter date of transaction (yyyy/mm/dd): ")<br>
+    														transaction_type = input("Enter transaction type ('credit' or 'debit'): ")<br>
+    														transaction_type = transaction_type.lower()<br>
+													#assigning the 'sender' or 'recipient' variable as the username depending on the transaction type<br>
+    														if transaction_type == "credit":<br>
+        														recipient = "you"<br>
         														print('''
         														Who transferred money to you? Input below...''')
         														sender_first = input("Enter the first name of sender: ")
