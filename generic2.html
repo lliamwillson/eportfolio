@@ -49,212 +49,215 @@
 									<h3>Simple Bank Account Book Code (.py):</h3>
 									<pre style="font-size: 18px;">
 									<p>	
-										#Bank Account Book program<br>
-										#'bab' stands for 'bank account book'<br>
-										
-									</p>
-									<p>
-										#creates a .txt for storing data if one doesn't exist<br>
-										bab_file = open("bab.txt", 'a')<br>
-										bab_file.close()<br>
-										
-									</p>
-									<p>
-										#displays initialisation<br>
-										print("\nOpening your bank account book...")<br>
-									</p>
-									<p>
-										#retrieving the username<br>
-										username_first = input("\nPlease enter your first name: ")<br>
-										username_surname = input("Please enter your surname: ")<br>
-										#formatting the username<br>
-										username_first = username_first.capitalize()<br>
-										username_surname = username_surname.capitalize()<br>
-										#creating the username<br>
-										username = username_first + " " + username_surname<br>
-									</p>
-									<p>
-										#defining the main menu where all options are available from<br>
-										def bab_menu():<br>
-										#main menu display (application interface)<br>
-    											print('''\nThis is the bank account book of ''' + username + '''. See your options below:<br>
-    											<br>	
-    											To view your transactions ~ Enter 1<br>
-    											To search for a specific transaction ~ Enter 2<br>
-   											To add a transaction ~ Enter 3<br>
-    											To delete a transaction ~ Enter 4<br>
-    											To sort your transactions ~ Enter 5<br>
-											<br>
-        											To Quit ~ Enter 6<br>
-    											''')<br>
-										#directory for functional options<br>
-    											bab_selection = input("Enter your option (1-6): ")<br>
-    											if bab_selection == '1':<br>
-        											bab_view()<br>
-    											elif bab_selection == '2':<br>
-        											bab_search()<br>
-    											elif bab_selection == '3':<br>
-        											bab_add()<br>
-    											elif bab_selection == '4':<br>
-        											bab_delete()<br>
-    											elif bab_selection == '5':<br>
-        											bab_sort()<br>
-    											else:<br>
-        											print("\n\nYou Quit. Bye.\n")<br>
+#Bank Account Book program
+#'bab' stands for 'bank account book'
 
+									</p>
+									<p>
+#creates a .txt for storing data if one doesn't exist
+bab_file = open("bab.txt", 'a')
+bab_file.close()
 
-											#defining the 'view' functionality<br>
-											def bab_view():<br>
-											#create/open a text file for storing data, display data, close file, return to menu<br>
-    												with open('bab.txt', 'r') as bab_file:<br>
-        												print('''<br>
-											---------------------------------------------------------------<br>
+									</p>
+									<p>
+#displays initialisation
+print("\nOpening your bank account book...")
 
-        												See All Your Inputted Transactions Below >>><br>
+									</p>
+									<p>
+#retrieving the username
+username_first = input("\nPlease enter your first name: ")
+username_surname = input("Please enter your surname: ")
+#formatting the username
+username_first = username_first.capitalize()
+username_surname = username_surname.capitalize()
+#creating the username
+username = username_first + " " + username_surname
+
+									</p>
+									<p>
+#defining the main menu where all options are available from
+def bab_menu():
+#main menu display (application interface)
+    print('''\nThis is the bank account book of ''' + username + '''. See your options below:
+    
+    To view your transactions ~ Enter 1
+    To search for a specific transaction ~ Enter 2
+    To add a transaction ~ Enter 3
+    To delete a transaction ~ Enter 4
+    To sort your transactions ~ Enter 5
+
+        To Quit ~ Enter 6
+    ''')
+#directory for functional options
+    bab_selection = input("Enter your option (1-6): ")
+    if bab_selection == '1':
+        bab_view()
+    elif bab_selection == '2':
+        bab_search()
+    elif bab_selection == '3':
+        bab_add()
+    elif bab_selection == '4':
+        bab_delete()
+    elif bab_selection == '5':
+        bab_sort()
+    else:
+        print("\n\nYou Quit. Bye.\n")
+	
+									</p>
+									<p>
+#defining the 'view' functionality
+def bab_view():
+#create/open a text file for storing data, display data, close file, return to menu
+    with open('bab.txt', 'r') as bab_file:
+        print('''
+---------------------------------------------------------------
+
+        See All Your Inputted Transactions Below >>>
         
-        												''')<br>
-        												print(bab_file.read())<br>
-        												print("---------------------------------------------------------------")<br>
-    												bab_file.close()<br>
-    												bab_menu()<br>
+        ''')
+        print(bab_file.read())
+        print("---------------------------------------------------------------")
+    bab_file.close()
+    bab_menu()
 
 
-												#defining the 'search' functionality<br>
-												def bab_search():<br>
-												#create/open a text file for storing data, set variable as the data<br>
-    													with open("bab.txt", 'r') as bab_file:<br>
-        													reader = bab_file.readlines()<br>
-    													print("\n---------------------------------------------------------------\n")<br>
-												#retrieving a search keyword from user<br>
-    													keyword_search = input("Enter the name associated with the transaction you wish to search for (or enter '1' to return to menu): ")<br>
-												#searching for keyword in each row of data, display row, display explanation<br>
-    													if keyword_search == '1':<br>
-        													print("\nreturning to menu...")<br>
-        													print("\n---------------------------------------------------------------")<br>
-        													bab_menu()<br>
-    													else:<br>
-        													print("\nThe transaction/s you searched for -->")<br>
-        													for line in reader:<br>
-            														if keyword_search.capitalize() in line or keyword_search.lower() in line:<br>
-                														print(line)<br>
-            														else:<br>
-                														pass<br>
-    													print("\n---------------------------------------------------------------")<br>
-    													bab_file.close()<br>
-    													bab_menu()<br>
+#defining the 'search' functionality
+def bab_search():
+#create/open a text file for storing data, set variable as the data
+    with open("bab.txt", 'r') as bab_file:
+        reader = bab_file.readlines()
+    print("\n---------------------------------------------------------------\n")
+#retrieving a search keyword from user
+    keyword_search = input("Enter the name associated with the transaction you wish to search for (or enter '1' to return to menu): ")
+#searching for keyword in each row of data, display row, display explanation
+    if keyword_search == '1':
+        print("\nreturning to menu...")
+        print("\n---------------------------------------------------------------")
+        bab_menu()
+    else:
+        print("\nThe transaction/s you searched for -->")
+        for line in reader:
+            if keyword_search.capitalize() in line or keyword_search.lower() in line:
+                print(line)
+            else:
+                pass
+    print("\n---------------------------------------------------------------")
+    bab_file.close()
+    bab_menu()
 
 
-													#defining the 'add' functionality<br>
-													def bab_add():<br>
-    														print("\n---------------------------------------------------------------")<br>
-													#retrieving the data for the transaction to be added<br>
-    														date = input("\nEnter date of transaction (yyyy/mm/dd): ")<br>
-    														transaction_type = input("Enter transaction type ('credit' or 'debit'): ")<br>
-    														transaction_type = transaction_type.lower()<br>
-													#assigning the 'sender' or 'recipient' variable as the username depending on the transaction type<br>
-    														if transaction_type == "credit":<br>
-        														recipient = "you"<br>
-        														print('''
-        														Who transferred money to you? Input below...''')
-        														sender_first = input("Enter the first name of sender: ")
-        														sender_surname = input("Enter the surname of sender: ")
-													#formatting the data entered for presentation purposes
-        														sender_first = sender_first.capitalize()
-        														sender_surname = sender_surname.capitalize()
-        														sender = sender_first + " " + sender_surname
-    														else:
-        														transaction_type = "debit"
-        														sender = "You"
-        														print('''
-        														Who did you transfer money to? Input below...''')
-        														recipient_first = input("Enter the first name of recipient: ")
-        														recipient_surname = input("Enter the surname of recipient: ")
-        														recipient_first = recipient_first.capitalize()
-        														recipient_surname = recipient_surname.capitalize()
-        														recipient = recipient_first + " " + recipient_surname
-    														amount = input("Enter the amount ($) (with 2 decimal places): ")
+#defining the 'add' functionality
+def bab_add():
+    print("\n---------------------------------------------------------------")
+#retrieving the data for the transaction to be added
+    date = input("\nEnter date of transaction (yyyy/mm/dd): ")
+    transaction_type = input("Enter transaction type ('credit' or 'debit'): ")
+    transaction_type = transaction_type.lower()
+#assigning the 'sender' or 'recipient' variable as the username depending on the transaction type
+    if transaction_type == "credit":
+        recipient = "you"
+        print('''
+        Who transferred money to you? Input below...''')
+        sender_first = input("Enter the first name of sender: ")
+        sender_surname = input("Enter the surname of sender: ")
+#formatting the data entered for presentation purposes
+        sender_first = sender_first.capitalize()
+        sender_surname = sender_surname.capitalize()
+        sender = sender_first + " " + sender_surname
+    else:
+        transaction_type = "debit"
+        sender = "You"
+        print('''
+        Who did you transfer money to? Input below...''')
+        recipient_first = input("Enter the first name of recipient: ")
+        recipient_surname = input("Enter the surname of recipient: ")
+        recipient_first = recipient_first.capitalize()
+        recipient_surname = recipient_surname.capitalize()
+        recipient = recipient_first + " " + recipient_surname
+    amount = input("Enter the amount ($) (with 2 decimal places): ")
 
-													#combining the data retrieved
-    														data_entry = (date + " | " + sender + " transferred " + recipient + " $" + amount + " | " + transaction_type + "\n")
-													#display data, create/open a text file for storing data, close file, return to menu  
-    														print('''
-													---------------------------------------------------------------
+#combining the data retrieved
+    data_entry = (date + " | " + sender + " transferred " + recipient + " $" + amount + " | " + transaction_type + "\n")
+#display data, create/open a text file for storing data, close file, return to menu  
+    print('''
+---------------------------------------------------------------
 
-    														You successfully added the following transaction to your bank account book: ''' + "\n" + data_entry + '''
-													---------------------------------------------------------------''')
-    														with open('bab.txt','a') as bab_file:
-        														bab_file.write(data_entry)
-        														bab_file.close()
-    														bab_menu()
-
-
-													#defining the 'delete' functionality
-													def bab_delete():
-													#create/open a text file for storing data, set variable as the data
-    														with open("bab.txt", 'r') as bab_file:
-        														reader = bab_file.readlines()
-    														print("\n---------------------------------------------------------------\n")
-													#retrieving a search keyword from user
-    														keyword_search = input("Enter the name associated with the transaction you wish to delete: ")
-													#searching for keyword in each row of data, display row
-    														for line in reader:
-        														if keyword_search.capitalize() in line or keyword_search.lower() in line:
-            															print("\nTransaction found --> " + line)
-        														else:
-            															pass
-													#retrieving from user confirmation of deletion
-    														deletion_query = input("Enter '1' if you wish to delete this transaction or enter '2' if you do not: ")
-													#searching for keyword in each row of data, write all rows of data to text file except row including keyword, display explanation
-    														if deletion_query == '1':
-        														with open("bab.txt", 'w') as bab_file:
-            															for line in reader:
-                															if keyword_search.capitalize() in line or keyword_search.lower() in line:
-                    																pass
-                															else:
-                    																bab_file.writelines(str(line))
-        														print("\ntransaction deleted...")
-        														print("\n---------------------------------------------------------------")
-        														bab_file.close()
-													#if deletion query is unconfirmed or unclear either return to menu or try again
-    														elif deletion_query == '2':
-        														print("\nreturning to menu...")
-        														print("\n---------------------------------------------------------------")
-    														else:
-        														print("\nYou failed to enter '1' or '2'. Try again...")
-        														bab_delete()
-    														bab_menu()
+    You successfully added the following transaction to your bank account book: ''' + "\n" + data_entry + '''
+---------------------------------------------------------------''')
+    with open('bab.txt','a') as bab_file:
+        bab_file.write(data_entry)
+        bab_file.close()
+    bab_menu()
 
 
-													#defining the 'sort' functionality 
-													def bab_sort():
-													#create/open a text file for storing data, set variable as the data
-    														with open('bab.txt', 'r+') as bab_file:
-        														reader = bab_file.readlines()
-    														print("\n---------------------------------------------------------------")
-													#retrieving the sorting option from user
-    														sort_query = input("\nTo sort by descending date order enter '1' or to sort by ascending date order enter '2': ")
-													#sorting the data dependent on the user's selection, write newly sorted data to text file, display explanation
-    														with open('bab.txt', 'w') as bab_file:
-        														if sort_query == '1':
-            															reader_sorted = sorted(reader,reverse=True)
-            															for line in reader_sorted:
-                															bab_file.writelines(line)
-            															print("\ntransactions sorted...")
-            															print("\n---------------------------------------------------------------")
-        														elif sort_query == '2':
-            															reader_sorted = sorted(reader,)
-            															for line in reader_sorted:
-                															bab_file.writelines(line) 
-            															print("\ntransactions sorted...")
-            															print("\n---------------------------------------------------------------")
-													#if sort query is unclear try again
-        														else:
-            															print("\nYou failed to enter '1' or '2'. Try again...\n")
-            															bab_sort()
-    														bab_menu()
+#defining the 'delete' functionality
+def bab_delete():
+#create/open a text file for storing data, set variable as the data
+    with open("bab.txt", 'r') as bab_file:
+        reader = bab_file.readlines()
+    print("\n---------------------------------------------------------------\n")
+#retrieving a search keyword from user
+    keyword_search = input("Enter the name associated with the transaction you wish to delete: ")
+#searching for keyword in each row of data, display row
+    for line in reader:
+        if keyword_search.capitalize() in line or keyword_search.lower() in line:
+            print("\nTransaction found --> " + line)
+        else:
+            pass
+#retrieving from user confirmation of deletion
+    deletion_query = input("Enter '1' if you wish to delete this transaction or enter '2' if you do not: ")
+#searching for keyword in each row of data, write all rows of data to text file except row including keyword, display explanation
+    if deletion_query == '1':
+        with open("bab.txt", 'w') as bab_file:
+            for line in reader:
+                if keyword_search.capitalize() in line or keyword_search.lower() in line:
+                    pass
+                else:
+                    bab_file.writelines(str(line))
+        print("\ntransaction deleted...")
+        print("\n---------------------------------------------------------------")
+        bab_file.close()
+#if deletion query is unconfirmed or unclear either return to menu or try again
+    elif deletion_query == '2':
+        print("\nreturning to menu...")
+        print("\n---------------------------------------------------------------")
+    else:
+        print("\nYou failed to enter '1' or '2'. Try again...")
+        bab_delete()
+    bab_menu()
 
-													#initialising functional application
-													bab_menu()
+
+#defining the 'sort' functionality 
+def bab_sort():
+#create/open a text file for storing data, set variable as the data
+    with open('bab.txt', 'r+') as bab_file:
+        reader = bab_file.readlines()
+    print("\n---------------------------------------------------------------")
+#retrieving the sorting option from user
+    sort_query = input("\nTo sort by descending date order enter '1' or to sort by ascending date order enter '2': ")
+#sorting the data dependent on the user's selection, write newly sorted data to text file, display explanation
+    with open('bab.txt', 'w') as bab_file:
+        if sort_query == '1':
+            reader_sorted = sorted(reader,reverse=True)
+            for line in reader_sorted:
+                bab_file.writelines(line)
+            print("\ntransactions sorted...")
+            print("\n---------------------------------------------------------------")
+        elif sort_query == '2':
+            reader_sorted = sorted(reader,)
+            for line in reader_sorted:
+                bab_file.writelines(line) 
+            print("\ntransactions sorted...")
+            print("\n---------------------------------------------------------------")
+#if sort query is unclear try again
+        else:
+            print("\nYou failed to enter '1' or '2'. Try again...\n")
+            bab_sort()
+    bab_menu()
+
+#initialising functional application
+bab_menu()
 										
 									</p></pre>
 								</div>
