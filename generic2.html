@@ -47,24 +47,20 @@
 									<h1>Part 1/3 of Assignment 1</h1>
 									</header>
 									<h3>Simple Bank Account Book Code (.py):</h3>
-									<pre style="font-size: 18px;">
-									<p>	
+									<pre>
 #Bank Account Book program
 #'bab' stands for 'bank account book'
 
-									</p>
-									<p>
+
 #creates a .txt for storing data if one doesn't exist
 bab_file = open("bab.txt", 'a')
 bab_file.close()
 
-									</p>
-									<p>
+
 #displays initialisation
 print("\nOpening your bank account book...")
 
-									</p>
-									<p>
+
 #retrieving the username
 username_first = input("\nPlease enter your first name: ")
 username_surname = input("Please enter your surname: ")
@@ -74,8 +70,7 @@ username_surname = username_surname.capitalize()
 #creating the username
 username = username_first + " " + username_surname
 
-									</p>
-									<p>
+
 #defining the main menu where all options are available from
 def bab_menu():
 #main menu display (application interface)
@@ -103,9 +98,8 @@ def bab_menu():
         bab_sort()
     else:
         print("\n\nYou Quit. Bye.\n")
-	
-									</p>
-									<p>
+
+
 #defining the 'view' functionality
 def bab_view():
 #create/open a text file for storing data, display data, close file, return to menu
@@ -258,8 +252,7 @@ def bab_sort():
 
 #initialising functional application
 bab_menu()
-										
-									</p></pre>
+									</pre>
 								</div>
 							</section>
 
