@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Part 1/3 of Assignment 1</title>
+		<title>Part 2/3 of Assignment 1</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -252,6 +252,203 @@ def bab_sort():
 
 #initialising functional application
 bab_menu()
+									</pre>
+									<pre>
+										<h3>Assignment 1: Part 2 of 3</h3>
+Part 1 of 3
+Section 1
+I. Objective & Purpose of Application
+I will develop a bank account book application. The objective of this application is to retrieve banking transactions (credits and debits) from the user, store this data and then allow the user to execute different functionalities including viewing, searching, adding, deleting and sorting transactions. Therefore, the purpose of this application will be to provide a user with a tool that allows them to record, organise and manage their banking transactions in order to offer bettered personal financial management.
+II. Instructions Regarding Application Execution
+1. Open the Bank Account Book application 2. Follow the applications prompts
+Section 2
+I. Data Structures Used in this Application 1. Insertion
+Insertion is defined as using comparison to place elements in iteration at a memory location (array, list, etc.) (Brookshear & Brylow, 2019).
+  1
+The above flowchart proposes how the data structure will be coded in the application. 2. Deletion
+Deletion is defined as using comparison to reinsert elements at their memory location (array, list, etc.) or at a new location except the element that is to be removed (Brookshear & Brylow, 2019; Lipschutz, 2004).
+ The above flowchart proposes how the data structure will be coded in the application.
+3. Sorting
+Sorting is defined as reinserting elements at their memory location (array, list,
+etc.) or a new location according to a specified order (Lipschutz, 2004).
+The above flowchart proposes how the data structure will be coded in the application.
+ 2
+
+4. Searching
+Searching is defined as assigning an element in a memory location (array, list,
+etc.) to a variable and then presenting that variable (Brookshear & Brylow, 2019).
+The above flowchart proposes how the data structure will be coded in the application.
+ 3
+
+II. Description of the Algorithms using Pseudocode The following algorithm retrieves the name of the user:
+The following algorithm defines the main menu interface and user options:
+  4
+
+The following algorithm defines the ‘view’ banking transactions functionality:
+ The following algorithm defines the ‘search’ banking transactions functionality:
+ 5
+
+The following algorithm defines the ‘add’ functionality:
+ 6
+
+The following algorithm defines the ‘delete’ functionality:
+ 7
+
+The following algorithm defines the ‘sort’ functionality:
+ (Metwalli, 2022)
+8
+
+Section 3
+I. Checkpoints to Test and Test Plan (incl. data range) Test Plan
+The range of data that will be tested will include string data and integer data. Data includes date of year, names, transaction type, integers 1-6 to select options and transaction amounts (money).
+Broadly, the following test types will be utilised: 1. White box testing [internal (development)]
+- Static testing: overall review of application’s code
+- Structural testing: review of individual algorithm blocks and their relationship
+with others
+3. Black box testing [external (user end)]
+- Structural testing: review of user interface (display) and output - Functional testing: review of function and behaviour
+  Checkpoint 1. Run program according to 1 instructions in ‘Section 1’ 2
+2. Confirm whether desired outputs 3
+are achieved at each 4
+(Bose, 2022) Mark If Output Achieved
+Test Instructions:
+        checkpoint defined below 3. Fill out table accordingly
+5 6 7
+        9
+
+Checkpoint 1: Entering the username Expected test result:
+“Enter your name: John Doe”
+Checkpoint 2: The main menu Expected test result:
+“This is the bank account book of [name of user should be inputted here by application]. See your options below:
+To view your bank account book transactions ~ Enter 1
+To search for a specific transaction by recipient ~ Enter 2
+To add a transaction ~ Enter 3
+To delete a transaction ~ Enter 4 To sort your transactions ~ Enter 5
+To Quit ~ Enter 6”
+Checkpoint 3: The ‘view’ functionality Expected test result:
+“See all your inputted transactions below -->
+2022/10/22 | You transferred Bill Henning $40.56 | debit 2022/10/28 | Liam Deen transferred You $75.38 | credit 2022/11/08 | You transferred Sam Cecchi $11.78 | debit 2022/11/03 | Michelle Conway transferred You $20.04 | credit 2022/10/24 | David Toon transferred You $113.98 | credit”
+...[then main menu should display]
+10
+
+Checkpoint 4: The ‘search’ functionality
+An expected test result (terminal output):
+“This is the transaction you searched for -->
+2022/11/08 | You transferred Sam Cecchi $11.78 | debit” ...[then main menu should display]
+Checkpoint 5: The ‘add’ functionality
+An expected test result (terminal output): “Enter date of transaction: 2022/10/22
+Enter transaction type (‘credit’ or ‘debit’): debit
+Who did you transfer money to? Enter below... Enter name of recipient: Bill Henning
+Enter the amount ($): 40.56
+You successfully added the following transaction to your bank account book: 2022/10/22 | You transferred Bill Henning $40.56 | debit”
+...[then main menu should display]
+...[added transaction should be present in output of ‘view’ functionality]
+11
+
+Checkpoint 6: The ‘delete’ functionality
+An expected test result (terminal output):
+“Enter the name associated with the transaction you wish to delete: Sam Cecchi This is the transaction you wish to delete -->
+2022/11/08 | You transferred Sam Cecchi $11.78 | debit
+To continue with the deletion enter ‘1’ or to cancel the deletion enter ‘2’: 1 transaction deleted...”
+...[then main menu should display]
+...[deleted transaction should be omitted from ‘view’ functionality output]
+Checkpoint 7: The ‘sort’ functionality
+An expected test result (terminal output):
+“To sort by descending date order enter ‘1’ or to sort by ascending date order enter ‘2’: 1
+transactions sorted...”
+...[then main menu should display]
+...[‘view’ functionality output should display transactions in desired order]
+12
+
+References
+Bose, S. (2022). ‘Software testing strategies and approaches.’, BrowserStack.
+Available from: https://www.browserstack.com/guide/software-testing-
+strategies-and-approaches [Accessed 3 November 2022].
+Brookshear, J. & Brylow, D. (2019) Computer Science: An Overview. 13th ed. Harlow:
+Pearson Education Limited.
+Lipschutz, S. (2004). Theory and Problems of Data Structures. 1st ed. Tata McGraw-
+Hill, London.
+Metwalli, S. (2022). ‘Pseudocode: What it is and how to write it.’, BuiltIn. Available from:
+https://builtin.com/data-science/pseudocode [Accessed 2 November 2022].
+13
+
+Part 2 of 3
+ Testing Strategy:
+Summary
+ *checkpoints are tested in ‘Black Box’ testing (user end)
+(Bose, 2022)
+14
+
+[Compatibility testing]
+The application’s code was loaded into a Python development environment in
+both Codio and Visual Studio Editor on both a Macintosh and Windows system. There was concern that the behaviour of the create/open text file functionality within the code would differ across computer systems. Fortunately, it did not. The application’s code worked correctly with no modification needed.
+[White Box: Static testing]
+The entirety of the application’s code was read line-by-line and various issues
+were corrected. Failures to indent correctly in lines 75-78, 114, 119, 183-184 and 190 were corrected. In many places to refine the code the new line character “\n” was used to replace “ ‘’’.....’’’ “. The correct read mode when opening a text file was ensured. Furthermore, at many locations “variable = open(‘text.txt’, ‘read mode’)” was replaced with “with open(‘text.txt’, ‘read mode’) as variable:”. Also print statements were refined to improve clarity and the user interface was better structured.
+[White Box: Structural testing]
+It was ensured that each algorithm block was correctly defined and that the
+definition was correctly implemented in sections of the application’s code where their functionality is called. Additionally, comments were implemented in each algorithm block to ensure each block’s individual code and functionality can be interpreted and modified easily in the future. Also, the line of code at the end of the application’s code which initialises the entire application and the functionalities of the interconnected definitions was checked. Critically, it was ensured that each algorithm block includes a successful return to the main interface (menu) after the user is finished with said
+15
+
+algorithms functionality. Finally, in each algorithm block, testing was done to guarantee where appropriate the application would accommodate or appropriately redirect the user when incorrect or alternative input was entered.
+[Black Box: Structural testing]
+All in ‘reference to the testing checkpoints defined in
+Part 1 of 3 of Assignment 1,
+ Desired output was achieved for Checkpoint 1 (entering the username). Test result:
+ 16
+
+Desired output was achieved for Checkpoint 2 (the main menu). Test result:
+ Desired output was achieved for Checkpoint 3 (the ‘view’ functionality). Test result:
+ Desired output was not achieved for Checkpoint 4 (the ‘search’ functionality). Test result:
+ 17
+
+The problem was identified as a failure in the line 81 For Loop where the variable is incorrectly referenced. This issue was rectified and the desired test result was achieved.
+Test result #2:
+Test Result #3 (of alternative prompt):
+Desired output was not achieved for Checkpoint 5 (the ‘add’ functionality). Test result:
+The problem was identified as a failure in the line 121 where variable definition does not occur. To rectify this, in line 119 the variable is defined and is set as an input() function. The desired result was then achieved.
+   18
+
+Test result #2:
+ Desired output was achieved for Checkpoint 6 (the ‘delete’ functionality). Test result #1:
+Also, the desired output was achieved for the alternative prompt when checking Checkpoint 6 (the ‘delete’ functionality).
+  19
+
+Desired output was not achieved for Checkpoint 7 (the ‘sort’ functionality). Test result:
+then,
+The problem was identified as a failure in the line 180 where the indentation was incorrect for the ‘If’ statement. To rectify this, the indentation was corrected, however, then an identical failure was identified in line 187 for the ‘Elif’ statement and this was also rectified. The desired result was then achieved.
+Test result #2:
+Test Result #3 (of alternative prompt):
+In both tests #2 and #3, the content of the text file was successfully sorted either by descending or ascending order and this was confirmed using the ‘view’ functionality.
+    20
+
+[‘Black Box’: Functional testing]
+Post ‘Black Box’ structural testing, functional testing can be completed. All
+functions in the application’s code are operational and its behaviour in response to user entered prompts is correct. If an incorrect prompt or alternative prompt is entered, the application’s code expects this and references the user to either the main menu or to try again. A good level of communication is provided by the application to the user also.
+(Bose, 2022)
+21
+
+README File:
+>Bank Account Book Application
+>About
+>This application is to retrieve banking transactions (credits and debits) from the user, store this data and then allow the user to execute different functionalities including viewing, searching, adding, deleting and sorting transactions. It provides a user with a tool that allows them to record, organise and manage their banking transactions in order to offer bettered personal financial management. In code the abbreviation “bab” stands for ‘bank account book’.
+>Installation/Code Execution Instructions
+>1. Open the ‘bankaccountbook.py’ (Python) file in a code editor such as, Visual Studio Code or Codio
+>2. Ensure the Python language/environment is supported/installed
+>3. Run the terminal
+>4. Follow the prompts the application provides
+>5. If the application fails or the user quits and wishes to restart it, go to step 1
+>Usage
+>This application is intended for use by users with a need to use a simple tool for managing their personal banking transactions.
+>Help
+> https://code.visualstudio.com/
+22
+
+> https://www.python.org/
+>Acknowledgements
+>Bose, S. (2022). ‘Software testing strategies and approaches.’, BrowserStack. Available from: https://www.browserstack.com/guide/software-testing-strategies-and- approaches [Accessed 3 November 2022].
+>Brookshear, J. & Brylow, D. (2019) Computer Science: An Overview. 13th ed. Harlow: Pearson Education Limited.
+>Lipschutz, S. (2004). Theory and Problems of Data Structures. 1st ed. Tata McGraw- Hill, London.
 									</pre>
 								</div>
 							</section>
