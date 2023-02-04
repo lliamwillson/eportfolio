@@ -77,6 +77,27 @@
 									for i in people:<br>
   									&nbsp;&nbsp;&nbsp;&nbsp;print(i.first_name)
 									</p>
+								
+									<p><strong>Protected & Unprotected Variables Program</strong><br>
+									class Student:<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;_schoolname = 'ABC School'<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;__jurisdiction = 'Queensland'<br>
+									<br>
+    									def __init__(self,name):<br>
+        								&nbsp;&nbsp;&nbsp;&nbsp;self.name = name<br>
+									<br>
+    									def printName(self):<br>
+        								&nbsp;&nbsp;&nbsp;&nbsp;print(self.name)<br>
+									<br>
+									std = Student('Liam')<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;print(std.name)<br>
+									<br>
+									std.name = 'Dua'<br>
+									print(std.name)<br>
+									<br>
+									print(Student._schoolname)<br>
+									print(Student.__jurisdiction)<br>
+									</p>
 									
 									<p><h3>Unit 2 Preparation Activities</h3>
 									<strong>Autonomous Car User Pen Portrait</strong><br>
