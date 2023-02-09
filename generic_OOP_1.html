@@ -576,6 +576,42 @@
 									Knox, S, Meier, P, Yoon, J & Harou, J 2018, ‘A python framework for multi-agent simulation of networked 
 									resource systems’, Environmental Modelling & Software, vol. 103, 16-28
 									</p>
+									
+									<p><strong>Encapsulation: Codio Lab</strong><br>
+									class Person():<br>
+									<br>
+  									&nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, name, age, occupation):<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self._name = name<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self._age = age<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self._occupation = occupation<br>
+									<br>
+  									&nbsp;&nbsp;&nbsp;&nbsp;def get_name(self):<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return self._name<br>
+  									<br>
+  									&nbsp;&nbsp;&nbsp;&nbsp;def set_name(self, new_name):
+    									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self._name = new_name
+  									<br>
+  									&nbsp;&nbsp;&nbsp;&nbsp;def get_age(self):
+    									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return self._age
+  									<br>
+  									&nbsp;&nbsp;&nbsp;&nbsp;def set_age(self, new_age):<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self._age = new_age<br>
+  									<br>
+  									&nbsp;&nbsp;&nbsp;&nbsp;def get_occupation(self):<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return self._occupation<br>
+  									<br>
+  									&nbsp;&nbsp;&nbsp;&nbsp;def set_occupation(self, new_occupation):<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self._occupation = new_occupation<br>
+  									<br>
+									my_person = Person("Citra Curie", 16, "student")<br>
+									print(my_person.get_name())<br>
+									print(my_person.get_age())<br>
+									my_person.set_age(18)<br>
+									print(my_person.get_age())<br>
+									print(my_person.get_occupation())<br>
+									my_person.set_occupation("plumber")<br>
+									print(my_person.get_occupation())<br>
+									</p>
 								</div>
 							</section>
 					</div>
