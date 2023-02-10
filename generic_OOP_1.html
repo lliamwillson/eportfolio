@@ -612,6 +612,31 @@
 									my_person.set_occupation("plumber")<br>
 									print(my_person.get_occupation())<br>
 									</p>
+									
+									<p><h3>Unit 8 Activities</h3>
+									<p><strong>Polymorphism: Codio Lab</strong><br>
+									class Chef:<br>
+									<br>
+  									&nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, name, cuisine, stars):<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.name = name<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.cuisine = cuisine<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.michelin_stars = stars<br>
+    									<br>
+  									&nbsp;&nbsp;&nbsp;&nbsp;def __gt__(self, other_chef):<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return self.michelin_stars > other_chef.michelin_stars<br>
+    									<br>
+  									&nbsp;&nbsp;&nbsp;&nbsp;def compare(self, other_chef):<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if self > other_chef:<br>
+      									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return f'{self.name} has more Michelin stars than {other_chef.name}'<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:<br>
+      									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return f'{other_chef.name} has more Michelin stars than {self.name}'<br>
+									<br>
+									marco = Chef('Marco Pierre White', 'French, British', 3)<br>
+									rene = Chef('Rene Redzepi', 'Nordic', 2)<br>
+									<br>
+									print(marco.compare(rene))<br>
+									print(rene.compare(marco))
+									</p>
 								</div>
 							</section>
 					</div>
