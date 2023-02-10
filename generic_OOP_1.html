@@ -530,6 +530,46 @@
 									print(t1.calc_bmi())<br>
 									print(t1.bmiRisk)
 									</p>
+									
+									<p><strong>Polymorphism: e-Portfolio Activity</strong><br>
+									class ObstacleSensor:<br>
+									<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, warning = None):<br>
+        								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.warning = warning<br>
+									<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;def alarm(self):<br>
+        								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("\n*beep*")<br>
+        								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(f"Vehicle detection of obstacle. Slowing. Warning: {self.warning}")<br>
+        								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;override = input("Enter '1' to override warning: ")<br>
+        								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if override == '1':<br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print('''**Warning, override. You have control of DRIVE.**<br>
+                							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Engage autonomous drive when safe to do so.''')<br>
+        								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:<br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pass<br>
+									<br>
+									<br>
+									class PositionalSensor:<br>
+									<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, warning = None):<br>
+        								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.warning = warning<br>
+									<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;def alarm(self):<br>
+        								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("\n*beep*")<br>
+        								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(f"Vehicle cannot detect lane markings. Slowing. Warning: {self.warning}")<br>
+        								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;override = input("Enter '1' to confirm override: ")<br>
+        								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if override == '1':<br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print('''**Warning, override. You have control of DIRECTION.**<br>
+                							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Engage autonomous drive when safe to do so.''')<br>
+        								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:<br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pass<br>
+									<br>
+									<br>
+									obstacle_sensor = ObstacleSensor('DANGER')<br>
+									positional_sensor = PositionalSensor('DANGER')<br>
+									<br>
+									for sensor in (obstacle_sensor, positional_sensor):<br>
+    										sensor.alarm()
+									</p>	
 
 									<p><h3>Unit 6 Activities</h3>
 									<p><strong>The Metrics Used To Assess The Features Of An Object Oriented Program</strong><br>
