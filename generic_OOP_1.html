@@ -652,6 +652,48 @@
 									my_person.set_occupation("plumber")<br>
 									print(my_person.get_occupation())<br>
 									</p>
+	
+									<p><strong>Banking Program: 3 Abstract Methods & 1 Subclass</strong><br>
+									from abc import ABC, abstractmethod<br>
+									<br>
+									class Bank(ABC):<br>	
+									<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;@abstractmethod<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;def info(self):<br>
+        								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pass<br>
+									<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;@abstractmethod<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;def interest_rate(self):<br>
+        								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pass<br>
+									<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;@abstractmethod<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;def borrowed(self):<br>
+        								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pass<br>
+									<br>
+									class Account(Bank):<br>
+									<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;def info(self):<br>
+        								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("Welcome to the bank.")<br>
+    									<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;def interest_rate(self):<br>
+        								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("Today the interest rate is 2%")<br>
+									<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;def borrowed(self):<br>
+        								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("You have no outstanding loans")<br>
+									<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;def initialise(self):<br>
+        								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;selection = input("Enter 1 to deposit or 2 to withdraw: ")<br>
+        								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if selection == str(1):<br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("You deposited money... Exiting...")<br>
+        								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:<br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("You have withdrawn money... Exiting...")<br>
+        								<br>
+									a1 = Account()<br>
+									a1.info()<br>
+									a1.interest_rate()<br>
+									a1.borrowed()<br>
+									a1.initialise()
+									</p>	
 									
 									<p><h3>Unit 8 Activities</h3>
 									<p><strong>Recursion: Codio Lab</strong><br>
