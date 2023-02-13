@@ -695,6 +695,84 @@
 									a1.initialise()
 									</p>	
 									
+									<p><h3>Unit 7 Activities</h3>
+									<p><strong>Data Structures & How They Support Object-Oriented Programming</strong><br>
+									Data structures organise data. Inherently, organisation of data supports efficiency and capability of 
+									object-oriented programs in relation to how they can then access this data and with what ease and clarity. 
+									This makes sense because objects themselves are a type of data structure and thus, compatible with use 
+									of other data structures. Different data structures are more suitable for different applications and 
+									therefore, the most appropriate one must be utilised to maximise program efficiency. Resultant is the most 
+									ideally defined relationship between multiple pieces of data and therefore, objects in object-oriented programs. 
+									3 types of data structures are, dictionaries, lists and tuples.<br>
+
+									<br>Dictionaries (also referred to as a map, hash map, lookup table or associative array) are a data structure 
+									type that allow a random number of objects to be stored, with a unique dictionary key allowing identification 
+									of each. Lists are ordered collections of items and referred to via indexing. Finally, tuples are immutable 
+									and the data in one tuple is related to and of relevance to data in other tuples.<br>
+									
+									<br>Benefits that data structuring provides to object-oriented programs are, faster detection of anomalies, 
+									improved data quality and availability of data, greater transparency within data teams, better regulatory 
+									compliance and faster data analysing.<br>
+
+									<br>Reference:<br>
+									Downey A (2012) Think Python, O’Reilly Media, California.
+									</p>
+	
+									<p><strong>Nested Dictionary Program</strong><br>
+									class Car:<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;def __init__(self):<br>
+        								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pass<br>
+									<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;def car_data(self):<br>
+        								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data = {<br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"car1" : {<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"brand" : "Volvo",<br>
+                							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"model" : "V40",<br>
+                							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"year" : 2009<br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"car2" : {<br>
+                							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"brand" : "BMW",<br>
+                							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"model" : "3 Series",<br>
+                							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"year" : 2011<br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"car3" : {<br>
+                							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"brand" : "Audi",<br>
+                							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"model" : "A6",<br>
+                							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"year" : 2013<br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+        								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+									<br>
+        								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return data<br>
+									<br>
+									a1 = Car()<br>
+									print(a1.car_data().items())<br>
+									print("")<br>
+									print(a1.car_data().keys())<br>
+									print("")<br>
+									print(a1.car_data().values())
+									</p>
+	
+									<p><strong>Kampffmeyer & Zschaler (2007) Article: Program</strong><br>
+									class DesignPattern:<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;def __init__(self):<br>
+        								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.data = {<br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Creational Design Pattern" : ["creations", "create", "objects", "making", "building", "installing"],<br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Structural Design Pattern" : ["structures", "relationships", "designs", "organization", "system"],<br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Behavioral Design Pattern" : ["behaviors", "communications", "functions", "operations", "actions", "reactions", "responses"]<br>
+        								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+    									<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;def search(self):<br>
+        								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;search = input("Enter a keyword to search an appropriate design pattern: ")<br>
+        								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;search = search.lower()<br>
+        								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for key in self.data:<br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for values in self.data[key]:<br>
+                							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if search in values:<br>
+                    							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return f"You should use a {key}"<br>
+									<br>
+									a1 = DesignPattern()<br>
+									print(a1.search())
+									</p>
+									
 									<p><h3>Unit 8 Activities</h3>
 									<p><strong>Recursion: Codio Lab</strong><br>
 									def recursive_power(base, exp):<br>
