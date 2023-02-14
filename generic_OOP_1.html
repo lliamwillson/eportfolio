@@ -115,7 +115,7 @@
 									</p>
 						
 									<p><h3>Unit 1-3 Collaborative Discussion</h3>
-									<strong>Unit 1 Initial Post</strong><br>
+									<p><strong>Unit 1 Initial Post</strong><br>
 									Padhy et al. (2018) prioritise 11 identified reusable assets associated with software development. 
 									These reusable assets have been identified from analysis of relevant and appropriate articles. 
 									Although, the ranking of these reusable assets is seemingly subjective.<br>
@@ -155,7 +155,7 @@
 									</p>
 									
 									<p><strong>Unit 2 Peer Responses</strong>
-									<br><strong>Reply 1</strong><br>
+									<p><br><strong>Reply 1</strong><br>
 									Thanks for the post.<br>
 									I think your approach has prioritised what is most fundamental within any software project and 
 									I appreciate this. By ranking the requirement analysis (RA) and knowledge requirement (KA) as 
@@ -772,6 +772,35 @@
 									a1 = DesignPattern()<br>
 									print(a1.search())
 									</p>
+	
+									<p><h3>Unit 8-10 Collaborative Discussion</h3>
+									<p><strong>Unit 8 Initial Post</strong><br>
+									The Internet of Things (IoT) describes real world objects that participate in the internet and therefore, 
+									must be globally networked, discovered and exploited. Smart Objects (SOs) which are physical objects that 
+									are actual implementations of IoT, are strengthened by improvements in processing, communication, sensing 
+									and actuation functionality. To fully exploit an SO’s potential, Fortino et al. (2015) suggest modelling of 
+									the system’s properties must occur at different levels of abstraction. They attempt utilising metamodels. 
+									Different versions of metamodeling map SO basic features and high-level interactions.<br>
+									
+									<br>Of course, metamodeling has strengths and weaknesses and these directly relate to the successful implementation 
+									of improved SO functionality. These will be discussed. Primarily, the strength of a metamodel lies in its 
+									reduction of the computational burden associated with computationally demanding analyses of simulation models. 
+									Thus, they are comparatively quick to develop, simple to derive, extremely flexible and more cost efficient. 
+									Furthermore, they are well suited to deterministic applications such as SOs. And finally, are useful in ‘linearizing’ 
+									otherwise highly complex conceptualisations.<br>
+									
+									<br>Weaknesses of metamodeling as they relate to SOs must be considered. Firstly, depending on the complexity of 
+									the SO conceptualisation or application, ‘linearization’ can be difficult to extract; specialist expertise 
+									may be required depending. Furthermore, the adequacy of the model is determined solely by individual conclusions. 
+									And finally, at this time there exists little suitable software for expediting and making efficient the modelling 
+									process.<br>
+									
+									<br>Reference:<br>
+									Fortino, G, Guerrieri, A & Savaglio C 2015, ‘Towards a development methodology for smart object-oriented IoT systems: 
+									A metamodel approach’, IEEE International Conference on Systems, Man and Cybernetics (SMC), University of Calabria, 
+									October 2015.
+									</p>
+									
 									
 									<p><h3>Unit 8 Activities</h3>
 									<p><strong>Recursion: Codio Lab</strong><br>
@@ -807,6 +836,48 @@
 									<br>
 									print(marco.compare(rene))<br>
 									print(rene.compare(marco))
+									</p>
+
+									<p><strong>Set Operation Descriptions</strong><br>
+									The ‘union’ set operation returns a set that contains all items from the original set, and all 
+									items from the specified set/s. Application of this operation type in a program for an autonomous 
+									car could include, when there is a need to collate all data retrieved by the system and then perform 
+									analysis on this data.<br>
+
+									<br>The ‘intersection’ returns a set that contains the similarity between two or more sets. Application of 
+									this operation type in a program for an autonomous car could include, when there is a need to isolate 
+									data and exclude non-relevant data in whatever functionality might need to be executed.<br>
+
+									<br>The ‘difference’ returns a set that contains the difference between two sets. Application of this operation 
+									type in a program for an autonomous car could include, when an identifier as it relates to the system and 
+									when the data point was collected in relation to corresponding data points needs to be determined. This 
+									could be to determine some conclusion about perhaps the surrounding environment of the autonomous car.<br>
+
+									<br>The ‘symmetric difference’ returns a set that contains all items from both sets, but not the items that are 
+									present in both sets. Application of this operation type in a program for an autonomous car could include, 
+									when there is a need to identify a repeated data entry by the system and therefore, perhaps as it relates 
+									to an error.
+									</p>
+						
+									<p><strong>Linear Search Program</strong><br>
+									#Search function with parameter list name and the value to be searched<br>
+									def search(List, n):<br>
+ 									<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;for i in range(len(List)):<br>
+        								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if List[i] == n:<br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return True<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;return False<br>
+ 									<br>
+ 									#A list which contains both string and numbers.<br>
+									List = [1, 2, "Hello", 4, "World", 6]<br>
+ 									<br>
+									#Code<br>
+									n = "World"<br>
+ 									<br>
+									if search(List, n):
+    									&nbsp;&nbsp;&nbsp;&nbsp;print("Found")<br>
+									else:<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;print("Not Found")
 									</p>
 	
 									<p><h3>Unit 9 Activities</h3>
