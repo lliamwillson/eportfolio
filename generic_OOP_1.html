@@ -808,6 +808,63 @@
 									print(marco.compare(rene))<br>
 									print(rene.compare(marco))
 									</p>
+	
+									<p><h3>Unit 9 Activities</h3>
+									<p><strong>Cyclomatic Complexity & Object Oriented Programming</strong><br>
+									Cyclomatic complexity is very relevant to object oriented systems and code because it aims to
+									quantitatively measure the complexity and therefore, quality of code. It encourages succinct 
+									and concisely built systems that are as efficient as possible. Supposedly, ‘size’ of code is 
+									proportional to effort and complexity of code. A greater number lines of code is associated with 
+									a greater productivity requirement, decreased quality and higher development cost.<br>
+
+									<br>It is advantageous to analyse cyclomatic complexity because it can guide the testing process, it’s 
+									easy to apply, it’s used to measure minimum effort. Although there are weaknesses associated. Cyclomatic 
+									complexity is a measure of control complexity and not data complexity and by promoting nested structures 
+									and the most succinct versions of code, there is a higher understanding and skill-level requirement. 
+									Finally, in case of simple comparisons, they may give a misleading figure and overall, cyclomatic 
+									complexity is language dependent.<br>
+
+									<br>An alternative metric to consider is the ABC metric. It is designed to measure software size and attempts 
+									to overcome the disadvantages of cyclomatic complexity. It is a more broad and therefore, theoretically 
+									accurate view of complexity because too many variables and factors exist that can skew a specific 
+									metric like cyclomatic complexity.<br>
+
+									<br>Reference:<br>
+									Madi, A, Zein, O & Seifedine, K (2013), ‘On the improvement of cyclomatic complexity metric’, International 
+									Journal of Software Engineering and Its Applications, vol. 7, no. 2, pp. 67-82.
+									</p>
+				
+									<p><strong>Cyclomatic Complexity: Example</strong><br>
+									public static string IntroducePerson(string name, int age)<br>
+									{<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;var response = $"Hi! My name is {name} and I'm {age} years old.";<br>
+									<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;if (age >= 18)<br>
+        								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;response += " I'm an adult.";<br>
+									<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;if (name.Length > 7)<br>
+        								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;response += " I have a long name.";<br>
+									<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;return response;<br>
+									}<br>
+									<br>
+									<br>The cyclomatic complexity of the following code has been calculated to approximately equal 3. 
+									<br>See https://linearb.io/blog/cyclomatic-complexity/ to understand how this was determined.
+									</p>
+	
+									<p><strong>Implementing the 'assert' Statement</strong><br>
+									# Python String Operations<br>
+									str1 = 'Hello'<br>
+									str2 ='World!'<br>
+									<br>
+									# using +<br>
+									assert len(str1 + str2) == 11, "Something is wrong"<br>
+									print('str1 + str2 = ', str1 + str2)<br>
+									<br>
+									# using *<br>
+									assert str1 * 3 == "HelloHelloHello", "Something is wrong"<br>
+									print('str1 * 3 =', str1 * 3)
+									</p>
 								</div>
 							</section>
 					</div>
