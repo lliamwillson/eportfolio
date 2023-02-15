@@ -803,6 +803,44 @@
 									
 									
 									<p><h3>Unit 8 Activities</h3>
+									<p><strong>Exception Handling Program</strong><br>
+									import math<br>
+									<br>
+									x = int(input("Please enter a positive number: "))<br>
+									<br>
+									try:<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;print(f"Square Root of {x} is {math.sqrt(x)}")<br>
+									<br>
+									except ValueError as ve:<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;print(f"Error: You entered {x}, which is not a positive number.")<br>
+									<br>
+									<br>
+									try:<br>
+   									&nbsp;&nbsp;&nbsp;&nbsp;numerator = 10<br>
+   									&nbsp;&nbsp;&nbsp;&nbsp;denominator = 0<br>
+									<br>
+   									&nbsp;&nbsp;&nbsp;&nbsp;result = numerator/denominator<br>
+									<br>
+   									&nbsp;&nbsp;&nbsp;&nbsp;print(result)<br>
+									<br>
+									except(ZeroDivisionError):<br>
+   									&nbsp;&nbsp;&nbsp;&nbsp;print("Error: Denominator cannot be 0")<br>
+									<br>
+									<br>
+									try:<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;print("Hello" + 1 + "World!")<br>
+									<br>
+									except(TypeError):<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;print("Error: Those types are unalike")<br>
+									<br>
+									<br>
+									try:<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;print(thing)<br>
+									<br>
+									except:<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;print("Error: Variable is not defined")
+									</p>
+	
 									<p><strong>Recursion: Codio Lab</strong><br>
 									def recursive_power(base, exp):<br>
     									&nbsp;&nbsp;&nbsp;&nbsp;if exp == 0:<br>
@@ -919,7 +957,7 @@
     									&nbsp;&nbsp;&nbsp;&nbsp;return response;<br>
 									}<br>
 									<br>
-									<br>The cyclomatic complexity of the following code has been calculated to approximately equal 3. 
+									<br>The cyclomatic complexity of the above code has been calculated to approximately equal 3. 
 									<br>See https://linearb.io/blog/cyclomatic-complexity/ to understand how this was determined.
 									</p>
 	
@@ -1027,6 +1065,61 @@
 									<br>Reference:<br>
 									Rani, P, Panichella, S, Leuenberger, M, Di Sorbo, A & Nierstrasz, O (2021), ‘How to identify class comment 
 									types? A multi-language approach for class comment classification’, vol. 181, no pagination.
+									</p>
+	
+									<p><strong>Unit Test Implementation to Code Above</strong><br>
+									def add(x, y):<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;assert x + y == x + y, "Error: Something is wrong"<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;return x + y<br>
+									<br>
+									def subtract(x, y):<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;assert x - y == x - y, "Error: Something is wrong"<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;return x - y<br>
+									<br>
+									def multiply(x, y):<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;assert x * y == x * y, "Error: Something is wrong"<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;return x * y<br>
+									<br>
+									def divide(x, y):<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;assert x / y == x / y, "Error: Something is wrong"<br>
+    									&nbsp;&nbsp;&nbsp;&nbsp;return x / y
+									</p>
+	
+	
+									<p><h3>Unit 11 Activities</h3>
+									<p><strong>See Unit 12</strong><br>
+										
+										
+									<p><h3>Unit 12 Activities</h3>									
+									<p><strong>Test Case Example: For Cruise Ship Software</strong><br>
+									<img src="images/OOP5.jpg" alt="" width='756' height='318'/>
+									</p>
+	
+									<p><strong>A Note About Design Patterns & Compatibility</strong><br>
+									Only some design patterns are compatible with others. Generally, creational, structural and 
+									behavioural design patterns are compatible with respectively, creational, structural and 
+									behavioural (their own) design patterns. But, furthermore it is likely that design patterns 
+									dealing with objects and classes and any given language, etc. are compatible with one another 
+									also. Like is compatible with like.
+									</p>
+	
+									<p><strong>Zhang & Budgen (2012): Design Patterns</strong><br>
+									Zhang & Budgen’s (2012) article outlines which design patterns are used most commonly and why. 
+									The most used design patterns are the singleton, factory, observer, builder and adapter design 
+									patterns.<br>
+									
+									<br>A singleton design pattern is used to limit the creation of a class to only one object. This 
+									pattern is used commonly because it allows you to have a single instance of a class that won’t need 
+									to change much. Next, a factory design pattern is used because it allows creation of all sorts of new 
+									classes, which allows creation of classes tightly coupled to the concrete implementation of your code. 
+									An observer design pattern allows many objects to observer a single object. This allows implementation 
+									of dependency between objects. Also, the builder design pattern is useful often because it is utilised 
+									to build objects, but this can be complex. Finally, the adapter pattern allows incompatible classes to 
+									work together. It does this by converting the interface of one class into another.<br>
+							
+									<br>Reference:<br>
+									Zhang, C & Budgen, D (2012), ‘What do we know about the effectiveness of software design patterns?’, 
+									IEEE Transactions on Software Engineering, vol. 38, no. 99, no pagination.
 									</p>
 								</div>
 							</section>
