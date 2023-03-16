@@ -46,7 +46,7 @@
 									                                                       <header class="major">
 										                                                             <h1>Assignment 1 & Assignment 2</h1>
 									                                                       </header>
-									                                                       <p><h3>Assignment 1 - System Design</h3>
+									                                                       <p><h2>Assignment 1 - System Design</h2>
 									                                                       <strong>Background Research Terms & Justifications of Use</strong><br>
 									                                                       </p>
 													   			<table>
@@ -150,6 +150,92 @@
 																
 																<br>Zhou, Z. & Sun, L. (2019) ‘Metamorphic testing of driverless cars’. Communications of the ACM, 62(3), pp.61-67. DOI: https://doi.org/10.1145/3241979.
 																</p>
+													   
+													   			<p><h2>Assignment 2 - System Implementation</h2>
+									                                                       	<strong>Commentary & README for Autonomous Car Software</strong><br>
+													   			<i>I. Application Execution Instructions</i><br>
+													   			<ol>
+																	<li>Open the Autonomous Car software</li>
+																	<li>Follow the software’s prompts</li>
+													   			</ol><br>
+													   			<i>II. Solution Implemented</i><br>
+													   			The solution implemented was an object-oriented python 3 program. It commits8 classes and 18 functions. 2 modules were imported (‘random’ and ‘time’). The functionality 
+													   			implemented included, user name retrieval, user authorisation, user override, main interface functionality, getting destination, saving a destination, deleting a destination, 
+													   			setting a route, executing a route, environment detection, error detection, maintaining velocity, accelerating & decelerating, detecting right & left lane bounds, turning right 
+													   			& left and automated testing. Various attributes defined various statuses within the system and different data structures were used to store default and generated data. See below.<br>
+																The implementation of list, queue, stack and dictionary data structures:<br>
+													   			<br>
+													   			1. List<br>
+													   			Lists were used to store information including pre-saved destinations and custom added destinations the user could select from. Also, lists were used to store functions that the 
+													   			system would randomly select from whilst generating the route to be executed to achieve the destination. A list called ‘randomiser’ is the effective parent that contains the functions 
+													   			relating to 3 smaller lists that respectively contain, motion (‘motion_options’), position (‘position_options’) and direction (‘direction_options’) options.<br>
+													   			<br>
+													   			2. Queue<br>
+													   			A queue is inputted into by the system with the steps the system will execute to achieve the destination. First the queue called ‘route’ is empty. Then utilising looping and randomisation, 
+													   			each step to be executed is appended into the queue and then when the route is executed the queue is accessed FIFO (‘first in first out’) and outputted in this manner.<br>
+													   			<br>
+													   			3. Stack<br>
+													   			A stack is utilised to store the reports on the system status during runtime. The ‘error_bank’ is filled with positive reports of “System running...” until an error occurs and then the 
+													   			system will check if the ‘top value’ in the stack is an error. If true, the system will throw the appropriate error and react accordingly.<br>
+													   			<br>
+													   			4. Dictionary<br>
+													   			A dictionary is used to store information regarding the objects/obstacles that can be encountered. Within the dictionary ‘objects’, a random size is assigned to each object/obstacle ‘vehicle’, 
+													   			‘bicycle’ and ‘pedestrian’. When the system detector detects true, an object is retrieved from the dictionary to inform the system and the response.<br>
+													   			<br>
+													   			(Brookshear & Brylow, 2019; Lipschutz, 2004)
+													   
+													   			<i>III. Post-Development Reflection</i><br>
+													   			Generally, the design plan submitted prior accurately describes the final product. Although, some differences/modifications exist. No inheritance was implemented in the final product. This is 
+													   			because despite initial predictions, the classes developed did not include functionality that needed to be inherited by other classes. Although all classes interact, their core functionality exists 
+													   			independently. Furthermore, a ‘selfCheck’ was not implemented for every class. Rather, small tests were implemented throughout. These are the 2 major differences between design and product.<br>
+													   
+													   			<i>IV. Testing</i><br>
+													   			As above, automated testing is implemented throughout utilising ‘assert’. ‘assert’ statements were implemented at key sections where subsequent functionality could be safeguarded most effectively 
+													   			from bad data or errors.<br>
+													   			
+													   			Post-development, testing involved utilising a range of data including string data and integer data. Data included destination names and integers 1-4 to select options.<br>
+																
+													   			The following test types were committed:<br>
+													   			1. White box testing [internal (development)]<br>
+													   			- Static testing: overall review of application’s code<br>
+																- Structural testing: review of individual algorithm blocks and their relationship with others<br>
+													   
+																3. Black box testing [external (user end)]<br>
+													   			- Structural testing: review of user interface (display) and output - Functional testing: review of function and behaviour<br>
+																
+													   			(Bose, 2022)<br>
+													  
+																<img src="images/OOP11.jpg" alt="" width='470' height='570'/><br>
+													   			
+													   			(Bose, 2022)<br>
+													   			<br>
+													   			<strong><i>V. README</i></strong><br>
+													   			>About<br>
+													   			>The objective of this software is to allow a user to enter a destination and then the system will generate, execute and report 
+													   			on a route that it will autonomously engage and successfully complete. Successful completion is defined as either achieving the 
+													   			destination or throwing an appropriate error in response to the surrounding or internal environment and handing control back over to the user safely and promptly. In addition to functionality that
+													   			achieves an inputted destination, the user can access functionality that allows them view all saved destinations, save custom destinations, delete destinations currently saved and exit the software.<br>
+													   			<br>
+													   			>Installation/Code Execution Instructions<br>
+													   			>1. Open the ‘autonomouscar.py’ (Python) file in a code editor such as, Visual Studio Code or Codio (or in reality the software should initialise in an autonomous drive car)<br>
+													   			>2. Ensure the Python language/environment is supported/installed<br>
+													   			>3. Run the terminal<br>
+													   			>4. Follow the prompts the software provides<br>
+													   			>5. If the software fails or the user quits and wishes to restart it, go to step 1<br>
+																<br>
+																>Usage<br>
+																>This application is intended for use by users with a need to utilise an autonomous car and it’s capability to deliver itself (& it’s passengers) to a destination without user input, except the user’s 
+													   			definition of what the destination is.<br>
+													   			<br>
+																>Help<br>
+																>https://code.visualstudio.com/<br>
+																>https://www.python.org/<br>
+																<br>
+																>Acknowledgements<br>
+																>Bose, S. (2022). ‘Software testing strategies and approaches.’, BrowserStack. Available from: https://www.browserstack.com/guide/software-testing-strategies-and-approaches [Accessed 3 November 2022].<br>
+																>Brookshear, J. & Brylow, D. (2019). Computer Science: An Overview. 13th ed. Harlow: Pearson Education Limited.<br>
+																>Lipschutz, S. (2004). Theory and Problems of Data Structures. 1st ed. Tata McGraw-Hill, London.<br>
+									                                                       	</p>
 								                                                 </div>
 							                                           </section>
 					                               </div>
