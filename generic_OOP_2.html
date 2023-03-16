@@ -477,12 +477,12 @@
 																<br>
 																#Defining the system's ability to check for general errors and then inform the system to process it appropriately and throw the correct error. A 1 in 50 chance.<br>
     																&nbsp;&nbsp;&nbsp;&nbsp;def check():<br>
-        															&nbsp;&nbsp;&nbsp;&nbsp;error_presence = random.randint(1,51)<br>
-        															&nbsp;&nbsp;&nbsp;&nbsp;if error_presence == 25:<br>
-            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assert error_presence == 25, "Error check failure"<br>
-            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return True<br>
-        															&nbsp;&nbsp;&nbsp;&nbsp;else:<br>
-            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return False<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;error_presence = random.randint(1,51)<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if error_presence == 25:<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assert error_presence == 25, "Error check failure"<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return True<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return False<br>
 																<br>
 																<br>
 																class Motion:<br>
