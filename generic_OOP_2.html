@@ -248,304 +248,302 @@
 																class User:<br>
 																<br>
 																#Defining a user's control<br>
-    																	control = None
-
-#Defining the initialisation of a user
-    def __init__(name):
-
-#Retrieving, formatting and compiling the user name
-        firstname = input("\nPlease enter your first name: ")
-        surname = input("Please enter your surname: ")
-        firstname = firstname.capitalize()
-        surname = surname.capitalize()
-        name = firstname + " " + surname
-
-        print("\nWelome " + name + ". This is the autonomous drive software of your car.")
-
-#Running the 'main' function
-        AutonomousCar.main()
-
-#Defining the user ability to authorise autonomous drive
-    def authorise():
-        time.sleep(2)
-        print("\nRoute ready.")
-        authorise_query = input("\nEnter '1' to authorise autonomous drive. Enter '2' to cancel: ")
-#Defining what classifies as authorisation & running the appropriate function
-        if authorise_query == '1':
-            assert authorise_query == '1', "Authorise query != '1'"
-            User.control = True
-            Navigator.engageRoute()
-        elif authorise_query == '2':
-            User.control = False
-            print("\nOk. Route cancelled.")
-            print("\nreturning to menu...")
-            AutonomousCar.main()
-        else:
-            print("\nInput not valid.")
-            print("\nreturning to menu...")
-            AutonomousCar.main()
-
-#Defining the user ability to override autonomous drive
-    def override():
-        print("\nAnalysing error type...")
-        time.sleep(3)
-#Defining which errors output which error and then running override
-        if "Object identified." in Navigator.error_bank[0]:
-            print("\nObstacle error.")
-        elif "Error identified." in Navigator.error_bank[0]:
-            print("\nERROR TYPE: " + str(random.randint(1,10)))
-        input("\n\nEnter '1' to confirm override of control: ")
-        print("\nOk. Route cancelled. YOU HAVE CONTROL.")
-        print("\nreturning to menu...")
-        AutonomousCar.main()
-            
-         
-class AutonomousCar:
-
-#Defining a list of presaved destinations to select from
-    destinations = ['Home', 'Work', 'Shops']
-
-#Defining the main menu
-    def main():
-        print('''\nInput the saved name of the destination you wish to select.
-        The presaved defaults are: 'Home', 'Work' & 'Shops'... 
-        
-                        OR
-        
-        Enter 1 to view all saved destinations.
-
-                        OR 
-
-        Enter 2 to add and save a new destination.
-
-                        OR
-
-        Enter 3 to delete a saved destination.
-
-                        OR
-
-        Enter 4 to exit.
-        ''')
-
-#Defining the main menu options & running the appropriate function
-#Asserting (testing) the user input to safeguard the system from bad data
-        destination_query = input("\nEnter your input: ")
-        if destination_query in AutonomousCar.destinations:
-            assert isinstance(destination_query, str)
-            Navigator.setRoute()
-        elif destination_query == '1':
-            assert isinstance(destination_query, int)
-            AutonomousCar.getDestination()
-        elif destination_query == '2':
-            assert isinstance(destination_query, int)
-            AutonomousCar.saveDestination()
-        elif destination_query == '3':
-            assert isinstance(destination_query, int)
-            AutonomousCar.deleteDestination()
-        elif destination_query == '4':
-            assert isinstance(destination_query, int)
-            print("\nGoodbye\n")
-            exit()
-        else:
-            print("\nCheck your input, including grammatical errors, and try again...")
-            AutonomousCar.main()
-
-#Defining the user ability to retrieve the saved destinations and view them
-    def getDestination():
-        print("\nThese are all the saved destinations: ")
-        print(AutonomousCar.destinations)
-        print("\nNow enter one from the main menu.")
-        print("\nreturning to menu...\n")
-        AutonomousCar.main()
-
-#Defining the user ability to save a custom destination and then enter it later on
-    def saveDestination(): 
-        save_selection = input("\nEnter the name of the destination you wish to save: ")
-        if save_selection in AutonomousCar.destinations:
-            print("Destination already saved. Try again.")
-            AutonomousCar.main()
-        else:
-            AutonomousCar.destinations.append()
-            print("\nDestination saved.")
-            print("\nreturning to menu...\n")
-            AutonomousCar.main()
-
-#Definign the user ability to delete a destination from the saved list including the default saves
-    def deleteDestination():
-        delete_selection = input("\nEnter the name of the saved destination to delete: ")
-        if delete_selection in AutonomousCar.destinations:
-            AutonomousCar.destinations.remove(delete_selection)
-            print("\nSaved destination deleted.")
-            print("\nreturning to menu...\n")
-            AutonomousCar.main()
-        elif delete_selection not in AutonomousCar.destinations:
-            print("\nSaved destination not found. Cannot perform deletion. Check for grammatical errors.")
-            print("\nreturning to menu...\n")
-            AutonomousCar.main()
-
-
-class Navigator:
-
-#Defining an empty list for the navigator to QUEUE in all directions/actions the autonomous car will execute to achieve the destination
-    route = []
-#Defining the length of the route to the destination
-    route_length = random.randint(5,11)
-#Defining an empty list for the navigator to STACK system reports during runtime
-    error_bank = []
-
-#Defining the system's ability to generate a QUEUE of directions to achieve the destination
-    def setRoute():
-        print("\nSaved destination found. Routing now...")
-        counter = 1
-        while counter <= Navigator.route_length:
-#Defining the liklihood of each direction/action being QUEUED
-            randomiser = [random.choice(Motion.action_options), random.choice(Motion.action_options), random.choice(LaneKeeper.position_options), random.choice(Steerer.direction_options), random.choice(Steerer.direction_options)]
-            Navigator.route.append(random.choice(randomiser))
-            counter += 1
-        User.authorise()
-
-#Defining the system's ability to execute the route generated with the Navigator.setRoute() function
-    def engageRoute():
-        print("--------------------")
-        print("\nAutonomous drive engaged. Reporting...")
-
-#Checking the user's authorisation to engage autonomous drive
-        if User.control == True:
-            print("\n" + Motion.accelerate())
-#Executing the route generated. Also, continuously checking the detector for objects/obstacles, checking for errors and reporting the system status to the empty list (error_bank)
-            for step in Navigator.route:
-#Continuously checking the detector for objects/obstacles then throwing an error and prompting the user to override if necessary
-                if Detector.detect() == True:
-                    object = random.choice(list(Detector.objects.items()))
-                    print(f"\n{object} DETECTED.")
-                    Navigator.error_bank.insert(0, "Object identified.")
-                    if "Object identified." in Navigator.error_bank[0]:
-                        print(f"\n** {Motion.decelerate()} **")
-                        print("\nSee error report stack history: \n" + str(Navigator.error_bank))
-                        User.override()
-
-#Continuously checking for general errors then throwing an error and prompting the user to override if necessary
-                elif ErrorChecker.check() == True:
-                    Navigator.error_bank.insert(0, "Error identified.")
-                    if "Error identified." in Navigator.error_bank[0]:
-                        print(f"\n** {Motion.decelerate()} **")
-                        print("\nSee error report stack history: \n" + str(Navigator.error_bank))
-                        User.override()
-
-                else:
-                    Navigator.error_bank.insert(0, "System running...")
-                    print("\n" + step())
-                    time.sleep(1)
-
-            print("\n" + Motion.decelerate())
-            print("\nDestination arrived.")
-        
-        print("--------------------")
-        print("\nreturning to menu...")
-        AutonomousCar.main()
-
-
-class Detector:
-
-#Defining a DICTIONARY that contains the descriptions of objects/obstacles that can be encountered and must be reacted to. Objects/obstacles are of random size to represent reality
-    objects = {
-        "Vehicle" : {
-            "Width" : random.randint(2,4),
-            "Length" : random.randint(4,6),
-        },
-        "Bicycle" : {
-            "Width" : random.uniform(1.0,2.0),
-            "Length" : random.uniform(2,3.5)
-        },
-        "Pedestrian" : {
-            "Width" : random.uniform(0.4,0.8),
-            "Length" : random.uniform(0.4,0.8)
-        }
-    }
-
-#Defining the system's ability to detect objects/obstacles and then inform the system to process it appropriately and throw the correct error. A 1 in 30 chance.
-    def detect():
-        object_presence = random.randint(1,31)
-        if object_presence == 15:
-            assert object_presence == 15, "Object detect failure"
-            return True
-        else:
-            return False
-
-
-class ErrorChecker:
-
-#Defining the system's ability to check for general errors and then inform the system to process it appropriately and throw the correct error. A 1 in 50 chance.
-    def check():
-        error_presence = random.randint(1,51)
-        if error_presence == 25:
-            assert error_presence == 25, "Error check failure"
-            return True
-        else:
-            return False
-
-
-class Motion:
-
-#Defining the system's ability to maintain speed, accelerate & decelerate
-    def constant():
-        action = "Maintaining Constant Velocity"
-        assert isinstance(action, str)
-        return action
-
-    def accelerate():
-        action = "Accelerating"
-        assert isinstance(action, str)
-        return action
-           
-    def decelerate():
-        action = "Decelerating"
-        assert isinstance(action, str)
-        return action
-
-#Defining a list from which the system can randomly choose a motion 
-    action_options = [constant, constant, accelerate, decelerate]
-
-
-class LaneKeeper:
-
-#Defining the system's ability to detect right and left bounds while in a lane
-    def detectBound_right():
-        position = "**Deviated right. Returning to centre. Moving LEFT.**"
-        assert isinstance(position, str)
-        return position
-
-    def detectBound_left():
-        position = "**Deviated left. Returning to centre. Moving RIGHT.**"
-        assert isinstance(position, str)
-        return position
-
-#Defining a list from which the system can randomly choose a response to position
-    position_options = [detectBound_right, detectBound_left]
-
-
-class Steerer:
-
-#Defining the system's ability to turn right and turn left  
-    def angleRight():
-        direction = "Right turn"
-        assert isinstance(direction, str)
-        return direction
-
-    def angleLeft():
-        direction = "Left turn"
-        assert isinstance(direction, str)
-        return direction
-
-#Defining a list from which the system can randomly choose a direction
-    direction_options = [angleRight, angleLeft] 
-
-
-
-
-#Initialising the system
-print("\nInitialising autonomous software...")
-User()
+    																&nbsp;&nbsp;&nbsp;&nbsp;control = None<br>
+																<br>
+																#Defining the initialisation of a user<br>
+    																&nbsp;&nbsp;&nbsp;&nbsp;def __init__(name):
+																<br>
+																#Retrieving, formatting and compiling the user name<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;firstname = input("\nPlease enter your first name: ")<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;surname = input("Please enter your surname: ")<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;firstname = firstname.capitalize()<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;surname = surname.capitalize()<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name = firstname + " " + surname<br>
+																<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("\nWelome " + name + ". This is the autonomous drive software of your car.")<br>
+																<br>
+																#Running the 'main' function<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AutonomousCar.main()<br>
+																<br>
+																#Defining the user ability to authorise autonomous drive<br>
+    																&nbsp;&nbsp;&nbsp;&nbsp;def authorise():<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time.sleep(2)<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("\nRoute ready.")<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;authorise_query = input("\nEnter '1' to authorise autonomous drive. Enter '2' to cancel: ")<br>
+																#Defining what classifies as authorisation & running the appropriate function<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if authorise_query == '1':<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assert authorise_query == '1', "Authorise query != '1'"<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User.control = True<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Navigator.engageRoute()<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif authorise_query == '2':<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User.control = False<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("\nOk. Route cancelled.")<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("\nreturning to menu...")<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AutonomousCar.main()<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("\nInput not valid.")<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("\nreturning to menu...")<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AutonomousCar.main()<br>
+																<br>
+																#Defining the user ability to override autonomous drive<br>
+    																&nbsp;&nbsp;&nbsp;&nbsp;def override():<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("\nAnalysing error type...")<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time.sleep(3)<br>
+																#Defining which errors output which error and then running override<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if "Object identified." in Navigator.error_bank[0]:<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("\nObstacle error.")<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif "Error identified." in Navigator.error_bank[0]:<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("\nERROR TYPE: " + str(random.randint(1,10)))<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;input("\n\nEnter '1' to confirm override of control: ")<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("\nOk. Route cancelled. YOU HAVE CONTROL.")<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("\nreturning to menu...")<br>
+																&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AutonomousCar.main()<br>
+            															<br>
+         															<br>
+																class AutonomousCar:<br>
+																<br>
+																#Defining a list of presaved destinations to select from<br>
+    																&nbsp;&nbsp;&nbsp;&nbsp;destinations = ['Home', 'Work', 'Shops']<br>
+																<br>
+																#Defining the main menu<br>
+    																&nbsp;&nbsp;&nbsp;&nbsp;def main():<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print('''\nInput the saved name of the destination you wish to select.<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The presaved defaults are: 'Home', 'Work' & 'Shops'...<br>
+        															<br>
+                        													&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OR<br>
+        															<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Enter 1 to view all saved destinations.<br>
+																<br>
+                        													&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OR<br>
+																<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Enter 2 to add and save a new destination.<br>
+																<br>
+                        													&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OR<br>
+																<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Enter 3 to delete a saved destination.<br>
+																<br>
+                        													&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OR<br>
+																<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Enter 4 to exit.<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;''')<br>
+																<br>
+																#Defining the main menu options & running the appropriate function<br>
+																#Asserting (testing) the user input to safeguard the system from bad data<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;destination_query = input("\nEnter your input: ")<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if destination_query in AutonomousCar.destinations:<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assert isinstance(destination_query, str)<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Navigator.setRoute()<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif destination_query == '1':<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assert isinstance(destination_query, int)<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AutonomousCar.getDestination()<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif destination_query == '2':<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assert isinstance(destination_query, int)<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AutonomousCar.saveDestination()<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif destination_query == '3':<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assert isinstance(destination_query, int)<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AutonomousCar.deleteDestination()<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif destination_query == '4':<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assert isinstance(destination_query, int)<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("\nGoodbye\n")<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit()<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("\nCheck your input, including grammatical errors, and try again...")<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AutonomousCar.main()<br>
+																<br>
+																#Defining the user ability to retrieve the saved destinations and view them<br>
+    																&nbsp;&nbsp;&nbsp;&nbsp;def getDestination():<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("\nThese are all the saved destinations: ")<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(AutonomousCar.destinations)<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("\nNow enter one from the main menu.")<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("\nreturning to menu...\n")<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AutonomousCar.main()<br>
+																<br>
+																#Defining the user ability to save a custom destination and then enter it later on<br>
+    																&nbsp;&nbsp;&nbsp;&nbsp;def saveDestination():<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;save_selection = input("\nEnter the name of the destination you wish to save: ")<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if save_selection in AutonomousCar.destinations:<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("Destination already saved. Try again.")<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AutonomousCar.main()<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AutonomousCar.destinations.append()<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("\nDestination saved.")<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("\nreturning to menu...\n")<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AutonomousCar.main()<br>
+																<br>
+																#Defining the user ability to delete a destination from the saved list including the default saves<br>
+    																&nbsp;&nbsp;&nbsp;&nbsp;def deleteDestination():<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delete_selection = input("\nEnter the name of the saved destination to delete: ")<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if delete_selection in AutonomousCar.destinations:<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AutonomousCar.destinations.remove(delete_selection)<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("\nSaved destination deleted.")<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("\nreturning to menu...\n")<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AutonomousCar.main()<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif delete_selection not in AutonomousCar.destinations:<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("\nSaved destination not found. Cannot perform deletion. Check for grammatical errors.")<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("\nreturning to menu...\n")<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AutonomousCar.main()<br>
+																<br>
+																<br>
+																class Navigator:<br>
+																<br>
+																#Defining an empty list for the navigator to QUEUE in all directions/actions the autonomous car will execute to achieve the destination<br>
+    																&nbsp;&nbsp;&nbsp;&nbsp;route = []<br>
+																#Defining the length of the route to the destination<br>
+    																&nbsp;&nbsp;&nbsp;&nbsp;route_length = random.randint(5,11)<br>
+																#Defining an empty list for the navigator to STACK system reports during runtime<br>
+    																&nbsp;&nbsp;&nbsp;&nbsp;error_bank = []<br>
+																<br>
+																#Defining the system's ability to generate a QUEUE of directions to achieve the destination<br>
+    																&nbsp;&nbsp;&nbsp;&nbsp;def setRoute():<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("\nSaved destination found. Routing now...")<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;counter = 1<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while counter <= Navigator.route_length:<br>
+																#Defining the liklihood of each direction/action being QUEUED<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;randomiser = [random.choice(Motion.action_options), random.choice(Motion.action_options), random.choice(LaneKeeper.position_options), random.choice(Steerer.direction_options), random.choice(Steerer.direction_options)]<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Navigator.route.append(random.choice(randomiser))<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;counter += 1<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User.authorise()<br>
+																<br>
+																#Defining the system's ability to execute the route generated with the Navigator.setRoute() function<br>
+    																&nbsp;&nbsp;&nbsp;&nbsp;def engageRoute():<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("--------------------")<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("\nAutonomous drive engaged. Reporting...")<br>
+																<br>
+																#Checking the user's authorisation to engage autonomous drive<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if User.control == True:<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("\n" + Motion.accelerate())<br>
+																#Executing the route generated. Also, continuously checking the detector for objects/obstacles, checking for errors and reporting the system status to the empty list (error_bank)<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for step in Navigator.route:<br>
+																#Continuously checking the detector for objects/obstacles then throwing an error and prompting the user to override if necessary<br>
+                														&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if Detector.detect() == True:<br>
+                    														&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;object = random.choice(list(Detector.objects.items()))<br>
+                    														&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(f"\n{object} DETECTED.")<br>
+                    														&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Navigator.error_bank.insert(0, "Object identified.")<br>
+                    														&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if "Object identified." in Navigator.error_bank[0]:<br>
+                        													&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(f"\n** {Motion.decelerate()} **")<br>
+                        													&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("\nSee error report stack history: \n" + str(Navigator.error_bank))<br>
+                        													&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User.override()<br>
+																<br>
+																#Continuously checking for general errors then throwing an error and prompting the user to override if necessary<br>
+                														&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif ErrorChecker.check() == True:<br>
+                    														&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Navigator.error_bank.insert(0, "Error identified.")<br>
+                    														&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if "Error identified." in Navigator.error_bank[0]:<br>
+                        													&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(f"\n** {Motion.decelerate()} **")<br>
+                        													&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("\nSee error report stack history: \n" + str(Navigator.error_bank))<br>
+                        													&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User.override()<br>
+																<br>
+                														&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:<br>
+                    														&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Navigator.error_bank.insert(0, "System running...")<br>
+                    														&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("\n" + step())<br>
+                    														&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time.sleep(1)<br>
+																<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("\n" + Motion.decelerate())<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("\nDestination arrived.")<br>
+        															<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("--------------------")<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("\nreturning to menu...")<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AutonomousCar.main()<br>
+																<br>
+																<br>
+																class Detector:<br>
+																<br>
+																#Defining a DICTIONARY that contains the descriptions of objects/obstacles that can be encountered and must be reacted to. Objects/obstacles are of random size to represent reality<br>
+    																&nbsp;&nbsp;&nbsp;&nbsp;objects = {<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Vehicle" : {<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Width" : random.randint(2,4),<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Length" : random.randint(4,6),<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Bicycle" : {<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Width" : random.uniform(1.0,2.0),<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Length" : random.uniform(2,3.5)<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Pedestrian" : {<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Width" : random.uniform(0.4,0.8),<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Length" : random.uniform(0.4,0.8)<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+    																&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+																<br>
+																#Defining the system's ability to detect objects/obstacles and then inform the system to process it appropriately and throw the correct error. A 1 in 30 chance.<br>
+    																&nbsp;&nbsp;&nbsp;&nbsp;def detect():<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;object_presence = random.randint(1,31)<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if object_presence == 15:<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assert object_presence == 15, "Object detect failure"<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return True<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return False<br>
+																<br>
+																<br>
+																class ErrorChecker:<br>
+																<br>
+																#Defining the system's ability to check for general errors and then inform the system to process it appropriately and throw the correct error. A 1 in 50 chance.<br>
+    																&nbsp;&nbsp;&nbsp;&nbsp;def check():<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;error_presence = random.randint(1,51)<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;if error_presence == 25:<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assert error_presence == 25, "Error check failure"<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return True<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;else:<br>
+            															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return False<br>
+																<br>
+																<br>
+																class Motion:<br>
+																<br>
+																#Defining the system's ability to maintain speed, accelerate & decelerate<br>
+    																&nbsp;&nbsp;&nbsp;&nbsp;def constant():<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;action = "Maintaining Constant Velocity"<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assert isinstance(action, str)<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return action<br>
+																<br>
+    																&nbsp;&nbsp;&nbsp;&nbsp;def accelerate():<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;action = "Accelerating"<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assert isinstance(action, str)<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return action<br>
+           															<br>
+    																&nbsp;&nbsp;&nbsp;&nbsp;def decelerate():<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;action = "Decelerating"<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assert isinstance(action, str)<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return action<br>
+																<br>
+																#Defining a list from which the system can randomly choose a motion<br>
+    																&nbsp;&nbsp;&nbsp;&nbsp;action_options = [constant, constant, accelerate, decelerate]<br>
+																<br>
+																<br>
+																class LaneKeeper:<br>
+																<br>
+																#Defining the system's ability to detect right and left bounds while in a lane<br>
+    																&nbsp;&nbsp;&nbsp;&nbsp;def detectBound_right():<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;position = "**Deviated right. Returning to centre. Moving LEFT.**"<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assert isinstance(position, str)<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return position<br>
+																<br>
+    																&nbsp;&nbsp;&nbsp;&nbsp;def detectBound_left():<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;position = "**Deviated left. Returning to centre. Moving RIGHT.**"<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assert isinstance(position, str)<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return position<br>
+																<br>
+																#Defining a list from which the system can randomly choose a response to position<br>
+    																&nbsp;&nbsp;&nbsp;&nbsp;position_options = [detectBound_right, detectBound_left]<br>
+																<br>
+																<br>
+																class Steerer:<br>
+																<br>
+																#Defining the system's ability to turn right and turn left<br>
+    																&nbsp;&nbsp;&nbsp;&nbsp;def angleRight():<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;direction = "Right turn"<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assert isinstance(direction, str)<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return direction<br>
+																<br>
+    																&nbsp;&nbsp;&nbsp;&nbsp;def angleLeft():<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;direction = "Left turn"<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assert isinstance(direction, str)<br>
+        															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return direction<br>
+																<br>
+																#Defining a list from which the system can randomly choose a direction<br>
+    																&nbsp;&nbsp;&nbsp;&nbsp;direction_options = [angleRight, angleLeft]<br>
+																<br>
+																<br>
+																#Initialising the system<br>
+																print("\nInitialising autonomous software...")<br>
+																User()
 									                                                       	</p>
 								                                                 </div>
 							                                           </section>
