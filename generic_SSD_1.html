@@ -185,7 +185,7 @@
 									<section id="two">
 									<p><h3>Unit 2 Activities</h3>
 									<strong>Seminar 2 Preparation</strong><br>
-									<strong>Table</strong><br>
+									<br><strong>Table</strong><br>
 									Software Development Stages Of The Scrum Agile Life Cycle<br>
 									<img src="images/SSD2.jpg" alt="" width='605' height='870'/>
 
@@ -253,11 +253,107 @@
 									<section id="three">
 									<p><h3>Unit 3 Activities</h3>
 									<strong>What is a Secure Programming Language?</strong><br>
-									Software Development Stages Of The Scrum Agile Life Cycle<br>
-									<img src="images/SSD2.jpg" alt="" width='605' height='870'/>
+									1. What factors determine whether a programming language is secure or not?<br>
+									<br>The factors that determine whether a programming language is secure or not:<br>
+									<ul>
+										<li><em>Secure By Default</em> – When a programming language is secure to use out of the box with little to no configuration changes and are available 
+										at no additional cost. What is easiest and most natural for a developer to use.</li>
+										<li><em>Decision Density</em> – Defines how frequently a developer deals with decisions that are insecure by default and must consciously and correctly 
+										make the correct decision to avoid introducing a vulnerability into the system.</li>
+										<li><em>Regularity of the Language</em> – The more consistent a language is, both within a single codebase, between different codebases, between 
+										different processor Instruction Set Architectures (ISA), the less prone it will be, the easier it will be for someone to learn, and the easier it 
+										will be for a person or automation to review. On the opposite side, the more frequently, “what does this code do” is asked and the more frequently, 
+										“well, it depends”, is answered with, the harder to learn and more prone to mistakes the language will be.</li>
+										<li><em>Understandability of the Details of a Variable</em>– How easy or hard is it to look at a variable in the code, understand what it is and does, 
+										what error states are possible for that variable in particular and the implications of the variable at each point?</li> 
+										<li><em>Object Clarity</em> – Like above, how easy is to understand an object in a piece of code and the related object-oriented programming 
+										components?</li>
+										<li><em>Obviousness of Control Flow</em> – How easy is it to understand when different code executes and in what order? Specifically, complex flow 
+										patterns like recursion, pre-processor generated code and function pointers make it easy to author code that is challenging to read and analyse, 
+										make errors and introduce vulnerabilities.</li>
+										<li><em>Visual Parsability of the Code</em> – Some languages force structure and that makes it easier to understand the code, while others have 
+										opted to make decisions that challenge a human’s ability to easily understand code.</li>
+										<li><em>Analysability</em> – In general how easy is analysability of code down the line.</li>
+									</ul>
+									<br>(Cifuentes & Bierman, 2019; Pillai, 2017)<br>
+									</p>
+									
+									<p><br>2. Could Python be classed as a secure language? Justify your answer.<br>
+									<br>Python can be classed as a secure language. Comparatively, it’s decision density, increasing regularity of the language, understandability of the details 
+									of a variable, object clarity and in general object-oriented programming application, obviousness of control flow and analysability are very high. Although, 
+									a particular characteristic relating to Python leaves something to be desired. Dependencies increase the risk of attack. Commonly, Python repositories contain 
+									more than just the code. They contain open-source packages, container images and configuration files used to provide infrastructure. The growing volume of 
+									dependencies expands the attack surface of projects. And, on average Python projects have ~35 dependencies.<br>
+									
+									<br>Despite this weakness, Python is more secure than C. In C comparatively, neither compile-time nor run-time checks prevent a variable of one type being changed 
+									to or interpreted as another type. In Python, there are guarantees on the kinds of data that a given variable might hold, the allowed set of values, their 
+									representation or the operators that may be carried out on the data.<br>
 
+									<br>Python is also a secure language because of how the following factors relate to it:<br>
+									<ul>
+										<li>Syntax</li>
+										<li>Stacks</li>
+										<li>Regex</li>
+										<li>Recursion</li>
+										<li>Queues</li>
+										<li>Polymorphism</li>
+										<li>Pointers</li>
+										<li>Mutability</li>
+										<li>Inheritance</li>
+										<li>Grammar</li>
+										<li>Memory Management</li>
+										<li>Encapsulation</li>
+										<li>Casting</li>
+										<li>Abstraction</li>
+									</ul>
+									<br>(Cifuentes & Bierman, 2019; Pillai, 2017)<br>
+									</p>
+
+									<p><br>3. Python would be a better language to create operating systems than C. Discuss.<br>
+									<br>Whilst theoretically, Python would provide a more secure foundation on which to build an operating system, there are trade-offs for this security. 
+									These include, operating system performance and an inability to create more base-level applications.<br>
+									
+									<br>In Python there are almost no compilers that can generate machine code at a low level. This is required because when creating an operating system, 
+									you need to generate machine code for the specific hardware that you want to use with the operating system you are designing. Furthermore, 
+									at this lowest level of creating an operating system C is processor specific while Python is not.<br>
+									
+									<br>(Cifuentes & Bierman, 2019; Pillai, 2017)<br>
+
+									<br><em>References:</em><br>
+									Cifuentes, C. & Bierman, G. (2019) What is a secure programming language?. Summit on Advances in Programming Languages, pp. 1-15. 
+									DOI: https://doi.org/10.4230/LIPIcs.SNAPL.2019.3<br>	
+									Pillai, A. (2017) Software Architecture with Python. Birmingham, UK. Packt Publishing Ltd.<br>
+									</p>
+
+									<p><em>4. Additonal Information Appendix:</em>em> The following are the features of a well-secured system:
+									<ul>
+										<li><em>Least Privilege</em> – Ensure all users and services have the least privileges required to carry out their task.</li>
+										<li><em>Open Design</em> – That is do not try to make a system secure by hiding its internals or operations.</li>
+										<li><em>Fail-Safe Defaults</em> – Assume that credentials are incorrect and make the operation fail-safe until data has been validated.</li>
+										<li><em>Separation of Privilege</em> – That is segregate users (and processes) into tiers based on levels of trust and ensure any access between tiers 
+										is checked and validated.</li>
+										<li><em>The Least Common Mechanism</em> – That is ensure that mechanisms used to access resources are not shared.</li>
+									</ul>
+									</p>
+									
+									<ul class="actions">
+										<li><a href="#main" class="button next scrolly">Return To The Directory</a></li>
+									</ul><br><br>
+									</section>
 
 									
+									
+
+
+
+
+
+
+
+
+
+
+
 
 									
 
