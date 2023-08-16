@@ -385,6 +385,52 @@
 									<img src="images/SSD8.jpg" alt="" width='600' height='150'/><br>
 									<br>
 
+									<br><strong>The Producer-Consumer Mechanism</strong><br>
+									<strong>How is the queue data structure used to achieve the purpose of the code?</strong><br>
+									The queue data structure is used to define the range of variable ‘number’ to be 100 and then assign the variable ‘number’ step-wise as each number up to 100 (not 
+									inclusive). And, for each number that the variable ‘number’ is assigned, the queue allows the system to format the result as (number, number**2) and then ‘task_done()’ 
+									ends the queuing of numbers in the range of 100 to be assigned as the variable ‘number’.  Finally, q.join() blocks further queuing and returns to task_done().<br>
+
+									<br><strong>What is the purpose of q.put(i)?</strong><br>
+									The purpose of q.put(i) is to queue each number in the range of 100 (not inclusive) in a queue because the range is defined as 100 (‘for i in range(100):).<br>
+
+									<br><strong>What is achieved by q.get()?</strong><br>
+									The purpose of q.get(i) is to step-wise retrieve the producer queue and assign the number as the respective number that the queue has 'stepped' to in that 
+									instantaneous moment.<br>
+									
+									<br><strong>What functionality is provided by q.join()?</strong><br>
+									Calling q.join() on the queue blocks and returns once the number of calls to task_done() which matches the number of calls to put() at the time that join() is called.<br>
+
+									<br><strong>Extend the producer-consumer code to make the producer-consumer scenario available in a secure way. What technique(s) would be appropriate to apply?</strong><br>
+									Utilising Python linters including Pylint and flake8 would be appropriate to ensure the security of the producer-consumer.py code and ensure no mistakes or bugs or errors 
+									are present to be causative of vulnerabilities.<br>
+									
+									<br>The following is how the pylint linter was utilised to secure the producer-consumer.py code:<br>
+									<img src="images/SSD9.jpg" alt="" width='605' height='680'/><br>
+
+									<br>The following is how the Flake8 linter was utilised to secure the producer-consumer.py code:<br>
+									<img src="images/SSD10.jpg" alt="" width='605' height='370'/><br>
+
+									<br>The final code is as follows:<br>
+									<img src="images/SSD11.jpg" alt="" width='605' height='630'/><br>
+
+									<br>Furthermore, the security of producer-consumer.py could be increased by installing a user interface, authentication system and method to encode the data.<br>
+									
+									<br>And, ensuring no:<br>
+									<ul>
+										<li>God Objects: A class that tries to do too much, but exhibits little cohesion or integration.</li>
+										<li>Constant Classes: A class that contains nothing but constant declarations.</li>
+										<li>Refused bequests: A class that breaks the rules of a contract or inheritance.</li>
+										<li>Freeloaders: A class that provides little functionality.</li>
+										<li>Feature Envy: A class that depends almost exclusively on another class, indicating excessively close coupling.</li>
+										<li>Long Methods: Similar to the God object an overlong or complex class.</li>
+										<li>Parameter Creeps: Too many parameters assigned to a function or method, making calling and testing difficult.</li>
+										<li>Minimal Cyclomatic Complexity: A function or method with too many branches or loops leading to convoluted logic again making complete testing problematic.</li>
+										<li>Poor Naming: A function or method using overly long or short identifiers – for both variables and function/ method names - making the logic difficult to understand.</li>
+										<li>Use of eval() function</li>
+									</ul>
+									<br>Buffer overflows cause the most damage to a system traditionally.<br>
+
 									<ul class="actions">
 										<li><a href="#main" class="button next scrolly">Return To The Directory</a></li>
 									</ul>
