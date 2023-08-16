@@ -348,8 +348,8 @@
 									<br>When ‘./bufoverflow’ is run in Terminal and a name of less than or equal to 8 characters is inputted, the system outputs the name repeated back to the User. 
 									When a name of more than 8 characters is inputted, the system outputs:<br>
 									
-									&nbsp;&nbsp;&nbsp;&nbsp;>> *** stack smashing detected ***: <unknown> terminated<br>
-									&nbsp;&nbsp;&nbsp;&nbsp;>> Aborted (core dumped)<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>> *** stack smashing detected ***: <unknown> terminated<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>> Aborted (core dumped)<br>
 
 									<br>...the program fails. See appendix.<br>
 
@@ -366,10 +366,10 @@
 									
 									<br>The result is:<br>
 									
-									&nbsp;&nbsp;&nbsp;&nbsp;>>Traceback (most recent call last):<br>
-									&nbsp;&nbsp;&nbsp;&nbsp;>>&nbsp;&nbsp;&nbsp;&nbsp;File “Overflow.py”, line 3, in <module><br>
-									&nbsp;&nbsp;&nbsp;&nbsp;>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;buffer[i]=7<br>
-									&nbsp;&nbsp;&nbsp;&nbsp;>>IndexError: list assignment index out of range<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>>Traceback (most recent call last):<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File “Overflow.py”, line 3, in <module><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;buffer[i]=7<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>>IndexError: list assignment index out of range<br>
 										
 									So, the result is a failure of the IndexError type.<br>
 
@@ -378,14 +378,14 @@
 									<br>The result is successful installation of the pylint linter.<br>
 									<br>Running ‘pylint Overflow.py’ outputs:<br>
 										
-									&nbsp;&nbsp;&nbsp;&nbsp;>> ************* Module Overflow<br>
-									&nbsp;&nbsp;&nbsp;&nbsp;>> Overflow.py:4:0: C0303: Trailing whitespace (trailing-whitespace)<br>
-									&nbsp;&nbsp;&nbsp;&nbsp;>>Overflow.py:5:0: C0304: Final newline missing (missing-final-newline)<br>
-									&nbsp;&nbsp;&nbsp;&nbsp;>>Overflow.py:1:0: C0103: Module name "Overflow" doesn't conform to snake_case naming style (invalid-name)<br>
-									&nbsp;&nbsp;&nbsp;&nbsp;>>Overflow.py:1:0: C0114: Missing module docstring (missing-module-docstring)<br>
-									&nbsp;&nbsp;&nbsp;&nbsp;>><br>
-									&nbsp;&nbsp;&nbsp;&nbsp;>>------------------------------------------------------------------<br>
-									&nbsp;&nbsp;&nbsp;&nbsp;>>Your code has been rated at 0.00/10 (previous run: 0.00/10, +0.00)<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>> ************* Module Overflow<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>> Overflow.py:4:0: C0303: Trailing whitespace (trailing-whitespace)<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>>Overflow.py:5:0: C0304: Final newline missing (missing-final-newline)<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>>Overflow.py:1:0: C0103: Module name "Overflow" doesn't conform to snake_case naming style (invalid-name)<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>>Overflow.py:1:0: C0114: Missing module docstring (missing-module-docstring)<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>>------------------------------------------------------------------<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>>Your code has been rated at 0.00/10 (previous run: 0.00/10, +0.00)<br>
 									
 									<br>So in effect, according to the Pylint linter analysis, the code rating is 0/10 and to improve this rating, the ‘Overflow.py….’ 
 									lint recommendations outputted by the Pylint linter need to be rectified. See appendix.<br>
