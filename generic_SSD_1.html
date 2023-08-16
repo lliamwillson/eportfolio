@@ -275,7 +275,7 @@
 										opted to make decisions that challenge a human’s ability to easily understand code.</li>
 										<li><em>Analysability</em> – In general how easy is analysability of code down the line.</li>
 									</ul>
-									<br>(Cifuentes & Bierman, 2019; Pillai, 2017)<br>
+									(Cifuentes & Bierman, 2019; Pillai, 2017)<br>
 									</p>
 									
 									<p><br>2. Could Python be classed as a secure language? Justify your answer.<br>
@@ -306,7 +306,7 @@
 										<li>Casting</li>
 										<li>Abstraction</li>
 									</ul>
-									<br>(Cifuentes & Bierman, 2019; Pillai, 2017)<br>
+									(Cifuentes & Bierman, 2019; Pillai, 2017)<br>
 									</p>
 
 									<p><br>3. Python would be a better language to create operating systems than C. Discuss.<br>
@@ -317,7 +317,7 @@
 									you need to generate machine code for the specific hardware that you want to use with the operating system you are designing. Furthermore, 
 									at this lowest level of creating an operating system C is processor specific while Python is not.<br>
 									
-									<br>(Cifuentes & Bierman, 2019; Pillai, 2017)<br>
+									(Cifuentes & Bierman, 2019; Pillai, 2017)<br>
 
 									<br><em>References:</em><br>
 									Cifuentes, C. & Bierman, G. (2019) What is a secure programming language?. Summit on Advances in Programming Languages, pp. 1-15. 
@@ -335,7 +335,61 @@
 										<li><em>The Least Common Mechanism</em> – That is ensure that mechanisms used to access resources are not shared.</li>
 									</ul>
 									</p>
+
+									<br><strong>Codio Activities</strong><br>
+									<br><strong>Part I: Buffer Overflow in C</strong><br>
+									What happens?<br>
+
+									<br>When ‘./bufoverflow’ is run in Terminal and a name of less than or equal to 8 characters is inputted, the system outputs the name repeated back to the User. 
+									When a name of more than 8 characters is inputted, the system outputs:<br>
 									
+									&nbsp;&nbsp;&nbsp;&nbsp;>> *** stack smashing detected ***: <unknown> terminated<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;>> Aborted (core dumped)<br>
+
+									<br>...the program fails. See appendix.<br>
+
+									<br><br>What does the output message mean?<br>
+									The output message means that the input does not fit into the specified buffer size of ‘8’ and is therefore, rejected and the system aborts the program or 
+									more specifically, the core. This is protective. It prevents deliberate buffer overflow which determines a system unavailable. See appendix.<br>
+
+									<br><em>Appendix:</em><br>
+									<img src="images/SSD3.jpg" alt="" width='500' height='500'/>
+									<br>
+									
+									<br><strong>Part II: Buffer Overflow in Python</strong><br>
+									What is the result?<br>
+									
+									<br>The result is:<br>
+									
+									&nbsp;&nbsp;&nbsp;&nbsp;>>Traceback (most recent call last):<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;>>&nbsp;&nbsp;&nbsp;&nbsp;File “Overflow.py”, line 3, in <module><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;buffer[i]=7<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;>>IndexError: list assignment index out of range<br>
+										
+									So, the result is a failure of the IndexError type.<br>
+
+									<br><br>What is the result? Does this tell you how to fix the error above?<br>
+									
+									<br>The result is successful installation of the pylint linter.<br>
+									<br>Running ‘pylint Overflow.py’ outputs:<br>
+										
+									&nbsp;&nbsp;&nbsp;&nbsp;>> ************* Module Overflow<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;>> Overflow.py:4:0: C0303: Trailing whitespace (trailing-whitespace)<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;>>Overflow.py:5:0: C0304: Final newline missing (missing-final-newline)<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;>>Overflow.py:1:0: C0103: Module name "Overflow" doesn't conform to snake_case naming style (invalid-name)<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;>>Overflow.py:1:0: C0114: Missing module docstring (missing-module-docstring)<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;>><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;>>------------------------------------------------------------------<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;>>Your code has been rated at 0.00/10 (previous run: 0.00/10, +0.00)<br>
+									
+									<br>So in effect, according to the Pylint linter analysis, the code rating is 0/10 and to improve this rating, the ‘Overflow.py….’ 
+									lint recommendations outputted by the Pylint linter need to be rectified. See appendix.<br>
+
+									<br><em>Appendix:</em><br>
+									<img src="images/SSD4.jpg" alt="" width='500' height='500'/><br>
+									<img src="images/SSD5.jpg" alt="" width='500' height='500'/>
+									<br>
+
 									<ul class="actions">
 										<li><a href="#main" class="button next scrolly">Return To The Directory</a></li>
 									</ul><br><br>
