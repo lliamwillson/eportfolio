@@ -441,8 +441,53 @@
 									<section id="four">
 									<p><h2>Unit 4 Activities</h2>
 									<strong>Seminar 2 Preparation</strong><br>
+									<br><strong>Recursion - Towers of Hanoi Problem</strong><br>
+									<br>Towers of Hanoi Recursive Solve (Asks for number of disks, then executes the moves, then displays the number of moves executed.):<br>
+									<img src="images/SSD25.jpg" alt="" width='605' height='325'/><br>
+									<br>Example output using 6 disks of Hanoi:<br>
+									<br><img src="images/SSD26.jpg" alt="" width='605' height='930'/><br>
+									<br>Testing discovered that the theoretical maximum number of disks that my program can move without generating an error is 996. Then (because), when 997 is 
+									attempted to be inputted, the following RecursionError output is generated:<br>
+									<br><img src="images/SSD27.jpg" alt="" width='605' height='350'/><br>
+									<br>Therefore, the theoretical maximum number of disks before RecursionError is 1000. This is because 4 lines of output are reserved 
+									for the formalities that my program produces in the output (the lines of output for structure (the blank lines) & the lines of output for inputting 
+									the number of disks and stating the completion in number of steps). This maximum exists because of the limit that the default Python IDE has.<br>
+									<br>So, what limits the number of iterations? What is implication for application and system security?<br>
+									<br>Python documentation states the default IDE has a recursion depth of 1000. If a function exceeds this limit, it can be increased. 
+									This is done using ‘sys.setrecursionlimit(n)’. The default limit is stated to exist to prevent infinite recursion from causing overflow of the 
+									C stack and in turn crashing Python.<br>
+									<br>The implication for this application then and system security is the risk of an attacker deliberately producing 
+									a Python RecursionError in order to crash the program and determine it unavailable. This is a type of stack overflow which in turn is a type of buffer overflow. 
+									And thus, certain security standards of commercially available applications therefore prohibit recursion functions altogether because of this weakness.<br>
+
+									<br><em>Reference:</em><br>
+									Python (2023) sys - System-specific parameters and functions. Available from: https://docs.python.org/3/library/sys.html [Accessed 1 September 2023].<br>	
+									</p>
+
+									<p><strong>Regex - UK Postcodes</strong><br>
+									A Python program that complies with the rules stipulated by the UK postcode system and IdealPostcodes & Kurdi (2020):<br>
+									<br><img src="images/SSD28.jpg" alt="" width='605' height='310'/><br>
+									<br>Testing using postcode exmaples provided:<br>
+									<br><img src="images/SSD29.jpg" alt="" width='605' height='670'/><br>
+									<br>Program limitations:<br>
+									<ul>
+										<li>It only works for UK postcodes. If you need to support other countries, you might need to have a separate regular expression for each one of 
+										them and execute it based on the country provided.</li>
+										<li>It cannot guarantee that the postcode actually exists. For instance, a postcode may be in a correct format, but the same postcode may be 
+										defunct.</li>
+										<li>The extraction method can generate false-positive extraction if a string contains multiple numbers.</li>
+									</ul>
+
+									<br>How to ensure the Python regex program is not subject to an evil regex attack:<br>
+									Ensure your regular expression patterns are not susceptible. This is done by reducing the number of combinations performed by the regex program. For example, 
+									avoid using nested quantifiers. Also, control backtracking. Limit or suppress backtracking by using atomic groups and lookaheads. Atomic groups describe 
+									when the ‘?>’ syntax is used to control backtracking and lookaheads describe when the ‘?=’ syntax is used to control backtracking (RegexBuddy, 2023).<br>
 									
-									
+									<br><em>Reference:</em><br>
+									IdealPostcodes & Kurdi (2020) The UK Postcode Format. Available from: https://ideal-postcodes.co.uk/guides/uk-postcode-format [Accessed 1 September 2023].<br>
+									RegexBuddy (2023) Preventing Regular Expression Denial of Service (ReDoS). Available from: https://www.regular-expressions.info/redos.html [Accessed 2 September 2023].<br>
+									</p>
+
 									<br><ul class="actions">
 										<li><a href="#main" class="button next scrolly">Return To The Directory</a></li>
 									</ul>
