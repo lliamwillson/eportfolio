@@ -315,7 +315,7 @@
 									(Cifuentes & Bierman, 2019; Pillai, 2017)<br>
 
 									<br><em>References:</em><br>
-									Cifuentes, C. & Bierman, G. (2019) What is a secure programming language?. Summit on Advances in Programming Languages, pp. 1-15. 
+									Cifuentes, C. & Bierman, G. (2019) What is a secure programming language?. <em>Summit on Advances in Programming Languages</em>, pp. 1-15. 
 									DOI: https://doi.org/10.4230/LIPIcs.SNAPL.2019.3<br>	
 									Pillai, A. (2017) Software Architecture with Python. Birmingham, UK. Packt Publishing Ltd.<br>
 									</p>
@@ -333,7 +333,7 @@
 									</p>
 
 									<br><br><strong>Codio Activities</strong><br>
-									<br><strong>Part I: Buffer Overflow in C</strong><br>
+									<br><strong><em>Part I: </em>Buffer Overflow in C</strong><br>
 									<strong>What happens when './bufoverflow' is run?</strong><br>
 
 									When ‘./bufoverflow’ is run in Terminal and a name of less than or equal to 8 characters is inputted, the system outputs the name repeated back to the User. 
@@ -352,7 +352,7 @@
 									<img src="images/SSD7.jpg" alt="" width='805' height='400'/>
 									<br>
 									
-									<br><strong>Part II: Buffer Overflow in Python</strong><br>
+									<br><strong><em>Part II: </em>Buffer Overflow in Python</strong><br>
 									<strong>What is the result when 'Overflow.py' is run?</strong><br>
 									
 									The result outputted when 'Overflow.py' is run is:<br><br>
@@ -384,7 +384,7 @@
 									<img src="images/SSD8.jpg" alt="" width='600' height='150'/><br>
 									<br>
 
-									<br><strong>Part III: The Producer-Consumer Mechanism</strong><br>
+									<br><strong><em>Part III: </em>The Producer-Consumer Mechanism</strong><br>
 									<strong>How is the queue data structure used to achieve the purpose of the code?</strong><br>
 									The queue data structure is used to define the range of variable ‘number’ to be 100 and then assign the variable ‘number’ step-wise as each number up to 100 (not 
 									inclusive). And, for each number that the variable ‘number’ is assigned, the queue allows the system to format the result as (number, number**2) and then ‘task_done()’ 
@@ -437,7 +437,64 @@
 									<p>-------------------------------------------------------------------------</p>
 									</section>
 
+									<section id="four">
+									<p><h2>Unit 4 Activities</h2>
+									<strong>Seminar 2 Preparation</strong><br>
 									
+									
+									<br><ul class="actions">
+										<li><a href="#main" class="button next scrolly">Return To The Directory</a></li>
+									</ul>
+
+									<p>-------------------------------------------------------------------------</p>
+									</section>
+
+									<section id="five">
+									<p><h2>Unit 5 Activities</h2><br>
+									<br><strong>Equivalence Testing In Python</strong><br>
+									After executing the ‘pip3 install pylint’ command to install the Python linter Pylint in Terminal, the command ‘pylint equivalence.py’ was executed. 
+									The following was the output. The code had a rating of 5.85/10:<br>
+									<br><img src="images/SSD13.jpg" alt="" width='605' height='300'/><br>
+									<br>Upon experimenting with correcting the above outputted Pylint lints, a code rating of 10.00/10 was achieved:<br>
+									<br><img src="images/SSD14.jpg" alt="" width='605' height='65'/><br>
+									<br>After executing the ‘pip3 install flake8’ and ‘pip install mccabe’ commands in Terminal to respectively install the Python linters Flake8 and Flake8 sub-linter 
+									Mccabe, the command ‘flake8 equivalence.py’ was executed. The following was the output:<br>
+									<br><img src="images/SSD15.jpg" alt="" width='605' height='115'/><br>
+									<br>Upon experimenting with and eventually correcting the above Flake8 lints, no more Flake8 recommended lints remained:<br>
+									<br><img src="images/SSD16.jpg" alt="" width='605' height='25'/><br>
+									<br>Then, the command ‘python -m mccabe equivalence.py’ was executed. The following was the output:<br>
+									<br><img src="images/SSD17.jpg" alt="" width='605' height='90'/><br>
+									<br>Upon experimenting with and eventually correcting the above Mccabe lints, the code had been improved by utilising these static linting tools (Pylint, 
+									Flake8 & Mccabe (Flake8 sub-linter):<br>
+									<br><img src="images/SSD18.jpg" alt="" width='605' height='30'/><br>
+									</p>
+										
+									<p><br><strong>Cyclomatic Complexity</strong><br>
+									The Cyclomatic Complexity of code is the number of linearly independent paths within it. I believe that it should remain a general measure 
+									by which the quality of code should be determined. This is because it is a good measure of control flow in software. It helps developers 
+									identify high-complexity areas of code that may be difficult to understand and maintain, increasing the risk of errors and bugs. Although, 
+									it is understood that cyclomatic complexity can be misused as a performance metric where developers aim to reduce cyclomatic complexity 
+									ignorant of other factors. If used in conjunction with these factors such as, code readability, maintainability and test coverage then 
+									it is meaningful and remains relevant today (Ebert, Cain, Antoniol, Counsell & LaPlante, 2016).<br>
+									
+									<br>It is also relevant to developing secure software. This is because a lower measure of cyclomatic complexity generally determines the 
+									more efficient a piece of code and thus, the more accurately and precisely it can be maintained and understood by competent developers. Thus, 
+									this ensures a higher likelihood of secure development because of a lesser likelihood for bugs and errors to be present or become present 
+									in code that scores a lower cyclomatic complexity (Ebert, Cain, Antoniol, Counsell & LaPlante, 2016).<br>
+									
+									<br><em>Reference:</em><br>
+									Ebert, C., Cain, J., Antoniol, G., Counsell, S. and LaPlante P. (2016). Cyclomatic Complexity. <em>IEEE Software</em>, 33(6), pp. 27-29. DOI: https://doi.org/10.1109/MS.2016.147<br>
+									<br>
+									</p>
+
+									<br><ul class="actions">
+										<li><a href="#main" class="button next scrolly">Return To The Directory</a></li>
+									</ul>
+
+									<p>-------------------------------------------------------------------------</p>
+									</section>
+									
+
 									
 
 
