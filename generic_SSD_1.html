@@ -580,17 +580,26 @@
 									Yes the errors can be corrected.<br>
 									<br>The errors returned by 'flake8 metricTest.py':<br>
 									<br><img src="images/SSD31.jpg" alt="" width='605' height='40'/><br>
-									<br
-									
-								
-									<br><img src="images/SSD.jpg" alt="" width='605' height='400'/><br>
-									<br>Changed from this:<br>
-									<br><img src="images/SSD.jpg" alt="" width='605' height='400'/><br>
-									
+									<br>The errors are corrected.<br>
+									<br>Now when flake8 metricTest.py' is run, the following output is achieved:<br>
+									<br><img src="images/SSD32.jpg" alt="" width='605' height='45'/><br>
+
+									<br><strong>Question 4 - Run the Mccabe linter on 'sums.py' & sums2.py' and find out the results. What are the contributors to cyclomatic compelxity in each piece of code?</strong><br>
+									The results from running 'python -m mccabe sums.py' & 'python -m mccabe sums2.py':<br>
+									<br><img src="images/SSD33.jpg" alt="" width='605' height='100'/><br>
+									<br>So, the total cyclomatic complexity of 'sums.py' = 3.<br>
+									And, the total cyclomatic complexity of 'sums2.py' = 4.<br>
+									<br>Therefore, 'sums.py' is determined to have less cyclomatic complexity or less independent linear paths than 'sums2.py'.<br>
+									<br>The contributors to cycolmatic complexity in each piece of code:<br>
+									In 'sums.py', the defining of the ‘test_sum()’ function and the defining of the ‘If __name__ = “__main__”’ functions are the contributors to cyclomatic complexity.<br>
+									<br>On the other hand, in 'sums2.py' the defining of the ‘test_sum()’ function and the ‘If __name__ = “__main__”’ functions are also contributors to cyclomatic complexity, 
+									as well as the defining of the ‘test_sum_tuple()’ function.<br>
+									<br>Therefore, there are more linear independent paths within the sums2.py code versus the sums.py code.<br>
+									<br>‘mccabe’ is a linter that checks cyclomatic complexity (install ‘pip3 install mccabe’ &, run ‘python -m –mccabe sums.py’ or ‘python -m –mccabe sums2.py’).<br>
+
 									<br><em>References:</em><br>
 									Flake8 (2023) Flake8 3.7.6 Documentation. Available from: https://flake8.pycqa.org/en/3.7.6/index.html [Accessed 27 August 2023].<br>
 									Pylint (2023) Pylint 3.0.0a8-dev0 Documentation. Available from: https://www.pylint.pycqa.org/en/latest/index.html<br> [Accessed 27 August 2023].<br>
-									
 									</p>
 
 									<ul class="actions">
