@@ -608,6 +608,77 @@
 
 									<p>-------------------------------------------------------------------------</p>
 									</section>
+									
+									<section id="seven">
+									<p><h2>Unit 7 Activities</h2>
+									<strong>What is an Ontology?</strong><br>
+									The definition of an ontology is, ‘a set of concepts and categories in a subject area or domain that shows their properties and the relations between them’. The ontology 
+									that has been presented by my reading is a Service Oriented Architecture (SOA) ontology. My understanding is that SOA is a software development method that involves using software 
+									components called “services” to create business applications. Each service provides a business capability, and services can also communicate with each other across platforms and languages.<br>
+
+									<br>Although, I understand that there is a major challenge associated with the implementation of a service catalogue when utilising an SOA, and that ontologies have been utilised to organise the 
+									“services” in repositories. OWL-SOA (Ontology Web Service Language) and WSMO (Web Service Modelling Ontology) have proposed that a specific ontology be used to catalogue “services” when utilising an 
+									SOA.<br>
+									
+									<br>Important to recognise, however, ontologies have limitations. These are that they are used on runtime only and that they only deal with Web Service technology to implement services.<br>
+									
+									<br>The OWL-SOA ontology presented by Arnaut, Oliviera & Lima (2010) to support the search and recovery of services in an SOA repository, is modelled below:<br>
+									<br><img src="images/SSD37.jpg" alt="" width='605' height='415'/><br>
+
+									<br>It has been informed by existing ontologies and literature and tested with services of a large multinational business.<br>
+
+									<br>Could you attempt to define an ontology that would be relevant to the system that you are designing for the summative assessment?<br>
+									The following is a domain ontology (the specifications of the conceptualisation of a given domain; i.e. online retailer) relevant to the online retailer system to be built in the summative assessment. 
+									Particularly, it has a focus on security:<br>
+									<br><img src="images/SSD38.jpg" alt="" width='605' height='943'/><br>
+
+									<br><em>References:</em><br>
+									Arnaut, W., Oliviera, K., & Lima, F. (2010) OWL-SOA: A Service Oriented Architecture Ontology Useful During Development Time And Independent From Implementation Technology. <em>2010 Fourth IEEE International 
+									Conference on Research Challenges in Information Science</em>, pp.523-532. DOI: https://doi.org/10.1109/RCIS.2010.5507314<br>
+									</p>
+
+									<p><strong>Python CLI/Shell</strong><br>
+									A simple CLI/Shell in Python:<br>
+									<br><img src="images/SSD39.jpg" alt="" width='605' height='552'/><br>
+									(Praka, 2018; Szabo, 2018)<br>
+
+									<br>The two main security vulnerabilities affecting the shell:
+									<ol>
+										<li>Shell Command Injection: If you’re running processes or OS commands with user-supplied values or parameters, then there’s a risk of attackers injecting malicious payloads to achieve Remote Code 
+										Execution on your server.</li>
+										<li>Using input(): Works as expected with numbers, but once you start entering strings, you’ll see it tries to find variables with the submitted names and throws an error if it can’t. It is an insecure 
+										default. Use raw_input() instead, to read user input as a string. This is related to and can facilitate Shell Command Injection.</li>
+									</ol>
+									(Turcsanyi, 2023)<br>
+
+									<br>What are recommendations you would make to increase the security of the shell?<br>
+									<br>To protect against Shell Command Injection the following can be implemented:
+									<ul>
+										<li>Avoid system calls and user input to prevent threat actors from inserting characters into the OS command.</li>
+										<li>Set up input validation to prevent attacks like XSS and SQL Injection.</li>
+										<li>Create a white list of possible inputs, to ensure the system accepts only pre-approved inputs.</li>
+										<li>Use only secure APIs—when executing system commands such as execFile().</li>
+										<li>Execute files securely to prevent users from gaining control over the name of the program. You should also map user input to command arguments 
+										in a way that ensures user input does not pass as-is into program execution.</li>
+									</ul>
+									(Imperva, 2023)<br>
+
+									<br>Pseudocode of the Python CLI/Shell:<br>
+									<img src="images/SSD40.jpg" alt="" width='465' height='728'/><br>
+
+									<br><em>References:</em><br>
+									Imperva (2023) Command Injection. Available from: https://www.imperva.com/learn/application-security/command-injection/ [Accessed 20 September 2023].<br>
+									Prakash, D. (2018) Write a Shell in Python. Available from: https://danishpraka.sh/posts/shell-in-python/ [Accessed 20 September 2023].<br>
+									Szabo, G. (2018) Create Your Own Interactive Shell with cmd in Python. Available from: https://code-maven.com/interactive-shell-with-cmd-in-python [Accessed 20 September 2023].<br>
+									Turcsanyi, G. (2023) Python Best Practices and Common Security Issues. Available from: https://avatao.com/blog-common-issues-and-best-practices-in-python/ [Accessed 20 September 2023].<br>
+									</p>
+
+									<ul class="actions">
+										<li><a href="#main" class="button next scrolly">Return To The Directory</a></li>
+									</ul>
+
+									<p>-------------------------------------------------------------------------</p>
+									</section>
 
 									<section id="eight">
 									<p><h2>Unit 8 Activities</h2>
@@ -616,7 +687,7 @@
 									<img src="images/SSD36.jpg" alt="" width='605' height='295'/><br>
 									(TutorialsPoint, n.d.)<br>
 
-									<br>The Reverse Cipher algorithm is characterised by the followings:<br>
+									<br>The Reverse Cipher algorithm is characterised by the followings:
 									<ul>
 										<li>Reverse Cipher uses a pattern of reversing the string of plain text to convert as cipher text.</li>
 										<li>The process of encryption and decryption is same.</li>
@@ -665,6 +736,50 @@
 									<br>
 									
 									<br><em>References:</em><br>
+									</p>
+
+									<ul class="actions">
+										<li><a href="#main" class="button next scrolly">Return To The Directory</a></li>
+									</ul>
+
+									<p>-------------------------------------------------------------------------</p>
+									</section>
+
+									<section id="nine">
+									<p><h2>Unit 9 Activities</h2>
+									<strong>Developing an API for a Distributed Environment</strong><br>
+									<br>API.py:<br>
+									<img src="images/SSD41.jpg" alt="" width='605' height='464.5'/><br>
+									<img src="images/SSD42.jpg" alt="" width='605' height='327'/><br>
+
+									<br>Question 1: Run the API.py code. Take a screenshot of the terminal output. What command did you use to compile and run the code?<br>
+									<br>The output:<br>
+									<img src="images/SSD43.jpg" alt="" width='605' height='133.5'/><br>
+									<br>The command I used to compile and run the code was, ‘python API.py’ because the name of the Python file was ‘API.py’. As instructed by the output, 
+									CTRL+C to quit was then executed.<br>
+
+									<br><br>Question 2: Run the following command at the terminal prompt: 'w3m http://127.0.0.1:5000/user/Ann'. What happens when this command is run, and why?<br>
+									<br>When the command ‘w3m http://127.0.0.1:5000/user/Ann’ is executed in the terminal prompt, the following output is achieved:<br>
+									<img src="images/SSD44.jpg" alt="" width='272' height='70'/><br>
+									<br>When the command is run, a terminal-based text web browse called w3m opens and accesses the URL ‘http://127.0.0.1:5000/user/Ann’. The w3m browser sends 
+									a GET request to the Flask server. Specifically, it receives the /user/Ann endpoint by accessing the User class and it’s get() definition. Because the user 
+									‘Ann’ is found in the user list, then the command produces the above output. Otherwise, a 404-error would have been thrown with the message ‘User not found’.<br>
+
+									<br><br>Question 3: Run the following command at the terminal prompt: 'w3m http://127.0.0.1:5000/user/Adam'. What happens when this command is run, and why?<br>
+									<br>When the command ‘w3m http://127.0.0.1:5000/user/Adam’ is executed in the terminal prompt, the following output is achieved:<br>
+									<img src="images/SSD45.jpg" alt="" width='272' height='30'/><br>
+									<br>When the command is run, a terminal-based text web browse called w3m opens and accesses the URL ‘http://127.0.0.1:5000/user/Adam’. The w3m browser sends a 
+									GET request to the Flask server. Specifically, it receives a 404-error response because the /user/Adam endpoint does not exist. The user ‘Adam’ is not found 
+									in the user list and a 404 error is the output accompanied by the message ‘User not found’.<br>
+
+									<br><br>Question 4: What capability is achieved by the flask library?<br>
+									Web applications and APIs built using Python are allowed by the Flask Library. It handles routing (for different URL patterns), request handling (incoming requests), 
+									response generation and templating. Furthermore, dynamic HTML templates can be created using Flask. Overall, Flask is utilised to allow developers easy 
+									integration of extensions and allows for additional functionality such as, database integration and authentication. It has a lightweight and flexible nature and 
+									built-in testing and debugging support. It’s simplicity and efficiency determines it a popular choice for building applications and their extensions (Flask, 2023).<br>
+									
+									<br>References:<br>
+									Flask (2023) Flask Documentation. Available from: https://flask.palletsprojects.com/en/2.3.x/ [Accessed 25 September 2023].<br>
 									</p>
 
 									<ul class="actions">
