@@ -488,6 +488,36 @@
 									RegexBuddy (2023) Preventing Regular Expression Denial of Service (ReDoS). Available from: https://www.regular-expressions.info/redos.html [Accessed 2 September 2023].<br>
 									</p>
 
+									<strong>Programming Language Concepts, Larson (2018) and Roichman & Weidman (n.d.)</strong><br>
+									1. What is ReDOS and what part do 'Evil Regex' play?<br>
+									ReDOS (or Regular Expression Denial Of Service) is an algorithmic complexity attack that produces a denial of service by providing regular expression and/or input that 
+									takes a long time to evaluate. It attempts to slow down or render an application unavailable. A regex pattern that is exploitable is called an ‘Evil Regex’. It is 
+									characterised by using repetition on complex subexpressions (the use of “+” and “*” on complex subexpressions. Furthermore, within these subexpressions, there are additional 
+									repetition symbols and expressions that match a suffix of another match. For example, the following regex pattern is an ‘Evil Regex’: ^(a+)+$<br>
+									
+									<br>Therefore, ‘Evil Regex’ are used to deliberately and with high success force a long run time on the evaluator and in turn, slow down or render the system unavailable.<br>
+
+									<br>2. What are the common problems associated with the use of regex? How can these be mitigated?<br>
+									The use of regex does have common problems. These are, that they are hard to understand and maintain, especially for complex or long patterns. They are prone to bugs and 
+									errors (e.g. typos, syntax errors or unintended matches). Furthermore, regex is not very efficient or scalable. Additionally, incorrect use plagues use of regex (e.g. incorrect 
+									use of separators or operators).<br>
+									
+									<br>Regex attacks can be mitigated by ensuring your regular expression patterns are not susceptible. This is done by reducing the number of combinations performed by the regex 
+									engines. For example, avoid using nested quantifiers. Regex is also mitigated by controlling backtracking. Limit or suppress backtracking by using atomic groups and lookaheads. 
+									Atomic groups describes when the ‘?>’ syntax is used to control backtracking and lookaheads describes when the ‘?=’ syntax to control backtracking.<br>
+
+									<br>3. How and why could regex be used as part of a security solution?<br>
+									Regex should be used to develop security solutions because only by analysing and integrating counter measures learned from the malicious tools used can security be focused and 
+									precise. Developers utilise regex to fine-tune firewall behaviour. For example, rules using regex can be created to block requests to certain file types from certain IP addresses 
+									or from certain user agents known to be malicious. Regex can also be used to validate user input and customise the behaviour of malware detectors (quarantine files accordingly). 
+									Furthermore, exploring faulty regexes or regexes that fail to consider one or multiple edge cases can further provide insight to unseen system vulnerabilities.<br>
+
+									<br><em>Reference:</em><br>
+									Larson, E. (2018) Automatic Checking of Regular Expressions. <em>2018 IEEE 18th International Working Conference on Source Code Analysis and Manipulation (SCAM)</em>, pp. 225-234. 
+									DOI: https://doi.org/10.1109/SCAM.2018.00034<br>
+									Roichman, A. & Weidman, A. (n.d.) Regular Expression Denial of Service. Available from: https://checkmarx.com/wp-content/uploads/2015/03/ReDoS-Attacks.pdf [Accessed 3 September 2023].<br>
+									</p>
+							
 									<br><ul class="actions">
 										<li><a href="#main" class="button next scrolly">Return To The Directory</a></li>
 									</ul>
