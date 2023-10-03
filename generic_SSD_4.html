@@ -100,7 +100,7 @@
 																<p><strong>Team Contract --></strong><br><br>
 																<img src="images/SSD46.jpg" alt="" width='579' height='843'/><br>
 																<img src="images/SSD47.jpg" alt="" width='579' height='768'/><br>
-																<img src="images/SSD48.jpg" alt="" width='579' height='269'/><br>
+																<img src="images/SSD48.jpg" alt="" width='579' height='269'/><br><br>
 																</p>
 
 															 	<p><strong>Peer Review: Design Document --></strong></strong><br><br>
@@ -111,7 +111,108 @@
 																<img src="images/SSD53.jpg" alt="" width='756' height='530'/><br>
 																<img src="images/SSD54.jpg" alt="" width='756' height='530'/><br>
 																<img src="images/SSD55.jpg" alt="" width='756' height='530'/><br>
-																<img src="images/SSD56.jpg" alt="" width='756' height='530'/><br>
+																<img src="images/SSD56.jpg" alt="" width='756' height='530'/><br><br>
+																</p>
+
+															 	<p><strong>Collaborative Discussion #1</strong><br>
+																<br><strong>Initial Post (in Unit 1)</strong><br>
+																The OWASP (2023) coding weakness I have focussed on in my discussion and represented using a UML flowchart is, Broken Access Control. I have utilised a use case diagram 
+																to represent Broken Access Control because this OWASP weakness is defined as an instance of a malicious user story in which a user (attacker) is acting outside their 
+																intended permissions and hence, mimicking administration or a higher-access level to assume their controls. Therefore, because a use case diagram captures the way in which users 
+																of software interact and benefit from it, modelling Broken Access Control is most appropriate using a use case diagram (Common Weakness Enumeration, 2017; OWASP, 2023).<br>
+																
+																<br>Although, modelling Broken Access Control using UML activity diagrams would also be appropriate because these particular UML models show the way in which events are executed 
+																within a system over time. Because Broken Access Control requires an attacker to manipulate authorised access and this involves a sequence of malicious behaviours/activities, a 
+																UML activity model will successfully present in-depth detail of the process (OWASP, 2023; Rumbaugh, Jacobson & Booch, 1999).<br>
+																
+																<br>Furthermore, a UML sequence diagram has the potential to be a successful representation of Broken Access Control. This is because it would represent how messages are distributed 
+																between objects and how an attacker could take advantage. Although, a UML sequence diagram would be the least ideal UML model to utilise because only the messages between objects 
+																involved in authenticating a user would be represented. Before this the attacker has already gained access/control and is in a position to enact malicious intent (OWASP, 2023; Rumbaugh, 
+																Jacobson & Booch, 1999).<br>
+																
+																<br><em>References:</em><br>
+																Common Weakness Enumeration (2017) CWE View: Weaknesses in OWASP Top Ten. Available from: https://cwe.mitre.org/data/definitions/1026.html 
+																[Accessed 14 August 2023].<br>
+																OWASP (2023) OWASP Top Ten. Available from: https://owasp.org/www-project-top-ten/ [Accessed 14 August 2023].<br>
+																Rumbaugh, J., Jacobson, I. & Booch, G. (1999) The Unified Modelling Language Reference Manual. Addison Wesley Longman, Inc.<br>
+																	
+																<br><em>Appendix:</em><br>
+																UML Use Case Model: OWASP (2023) Broken Access Control Weakness<br>
+																<img src="images/SSD1.jpg" alt="" width='705' height='470'/>
+																</p>
+										
+															 	<p><strong>Peer Response #1 (in Unit 2)</strong><br>
+																Thanks for your post.<br>
+																<br>I agree that a UML activity diagram well represents the behaviour of users and the system in the case of illustrating an instance of 
+																Broken Access Control. I also appreciate the specification that your diagram illustrates, particularly the vulnerability occurrence as it 
+																relates to Broken Access Control (Rumbaugh, Jacobson & Booch, 1999).<br>
+									
+																<br>Although, I recommend that the ‘how’ an attacker (user) accessed the information to be able to bypass the authorisation check is included 
+																in the diagram in some way. This would better illustrate the vulnerability of the system, even if the illustration is as simple as describing 
+																that the authorisation requires merely input of the word ‘password’ or some other simple form of broken access. Upon analysing your illustration, 
+																I have in turn realised mine own would benefit from a more specific illustration of the authorisation step.<br>
+
+																<br>Furthermore, I agree that a UML class diagram would not be effective in showing dynamic sequence of events that lead to security vulnerability 
+																as it relates to Broken Access Control. Although, I disagree with the notion that a UML use case diagram would not be effective. A use case diagram 
+																presents user stories as they refer to the users of the system (inclusive of malicious user; attackers). Security vulnerabilities are vulnerabilities 
+																exploited by people. Therefore, I determine the importance of UML use case diagrams as high in representation of Broken Access Control because they 
+																illustrate user interactions (Rumbaugh, Jacobson & Booch, 1999).<br>
+
+																<br><em>References:</em><br>
+																Common Weakness Enumeration (2017) CWE View: Weaknesses in OWASP Top Ten. Available from: https://cwe.mitre.org/data/definitions/1026.html 
+																[Accessed 14 August 2023].<br>
+																OWASP (2023) OWASP Top Ten. Available from: https://owasp.org/www-project-top-ten/ [Accessed 14 August 2023].<br>
+																Pillai, A. (2017) Software Architecture with Python. Birmingham, UK. Packt Publishing Ltd.<br>
+																Rumbaugh, J., Jacobson, I. & Booch, G. (1999) The Unified Modelling Language Reference Manual. Addison Wesley Longman, Inc.<br>
+																</p>
+										
+															 	<p><strong>Peer Response #2 (in Unit 2)</strong><br>
+																Thanks for your post.<br>
+																<br>I enjoyed reading your post regarding an OWASP (2023) weakness I personally have not yet illustrated a diagram for. I appreciated your inclusion 
+																of the ‘Log’ behaviour in your UML activity diagram and explanation of how the absence of logging at different steps of the activity process, as it 
+																relates to the system, would be a weakness that leads to compromise of the system. Although, I would argue, what is the efficiency in logging every 
+																single activity of the system at every step? I suggest that perhaps logging crucial intersections which are not bypassable would be more efficient as
+																it relates to logging information and more efficient as it relates to providing auditors and monitors with usable and meaningful data (Rumbaugh, Jacobson 
+																& Booch, 1999).<br>
+
+																<br>I agree with your discussion that a UML use case diagram would be meaningful by illustrating how actors interact with the system and are prone to 
+																or affected by the logging actions performed by the system. Furthermore, I believe that the activity diagram you have presented delivers a more 
+																meaningful illustration versus a sequence diagram. This is because the most important focus of the diagram is the logging and the ‘noise’ in a 
+																sequence diagram would deduct meaning from logging represented in the diagram. Furthermore, to this notion the current activity diagram you have 
+																presented may benefit from highlighting the ‘Log’ steps (Rumbaugh, Jacobson & Booch, 1999).<br>
+
+																<br><em>References:</em><br>
+																OWASP (2023) OWASP Top Ten. Available from: https://owasp.org/www-project-top-ten/ [Accessed 14 August 2023].<br>
+																Pillai, A. (2017) Software Architecture with Python. Birmingham, UK. Packt Publishing Ltd.<br>
+																Rumbaugh, J., Jacobson, I. & Booch, G. (1999) The Unified Modelling Language Reference Manual. Addison Wesley Longman, Inc.<br>
+																</p>
+
+															 	<p><strong>Summary Post (in Unit 3)</strong><br>
+																I am writing this upon reviewing of my peer’s responses, receiving feedback myself and creating my own initial post and accompanying UML use case 
+																diagram to discuss the OWASP (2023) coding weakness, Broken Access Control. I have improvements and learnings to add to my initial submission. Upon 
+																discussion with peers, I realised that a UML activity diagram is most likely and the most appropriate UML diagram to represent the OWASP Broken Access 
+																Control weakness with. This is because they illustrate the dynamic nature of a system. The ‘how’ does something occur (OWASP, 2023; Rumbaugh, Jacobson 
+																& Booch, 1999).<br>
+									
+																<br>Furthermore, this change could be reflected in mine own UML use case diagram to show more detail and focus regarding the ‘how’ an attacker would gain 
+																access to ‘view payroll information’ at all. I have realised this is vitally important especially as it relates to the concept of development and then 
+																how a development team would use a use case diagram to visualise the weakness and implement development solutions that prevent this weakness from being 
+																taken advantage of (OWASP, 2023).<br>
+									
+																<br>Additionally, I have learnt that a UML sequence diagram would be effective in illustrating dynamics of the system as it relates to gaining Broken 
+																Access Control. It would present more detail for complex Broken Access Control occurrences where the attacker must deploy more malicious techniques 
+																versus simply knowing the password in order to authenticate themselves as administrators, for example (Rumbaugh, Jacobson & Booch, 1999).<br>
+										
+																<br>Importantly, however, I learnt a UML use case diagram is appropriate to use and represent the OWASP Broken Access Control weakness because my assumption 
+																that it is important to illustrate user stories, was supported by my peers. In developing secure software, it is important to view the attacker’s (user’s) 
+																goals and objectives from their perspective and the ‘how’ they go about gaining Broken Access Control at all. By understanding the attacker’s (user’s) needs 
+																and requirements, the development team can protect against these and predict how an attacker might go about gaining Broken Access Control in the future 
+																(OWASP, 2023; Rumbaugh, Jacobson & Booch, 1999).<br>
+
+																<br><em>References:</em><br>
+																OWASP (2023) OWASP Top Ten. Available from: https://owasp.org/www-project-top-ten/ [Accessed 14 August 2023].<br>
+																Pillai, A. (2017) Software Architecture with Python. Birmingham, UK. Packt Publishing Ltd.<br>
+																Rumbaugh, J., Jacobson, I. & Booch, G. (1999) The Unified Modelling Language Reference Manual. Addison Wesley Longman, Inc.<br>
 																</p>
 								                                                 </div>
 							                                           </section>
